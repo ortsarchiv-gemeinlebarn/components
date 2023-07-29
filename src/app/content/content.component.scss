@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+  display: block;
+
+  .container {
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    max-width: var(--layout-inner-max-width);
+  }
+
+  &[max-width=outer] .container {
+    max-width: var(--layout-outer-max-width);
+  }
+}

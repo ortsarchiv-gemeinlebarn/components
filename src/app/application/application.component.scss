@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-padding);
+  overflow: auto;
+  box-sizing: border-box;
+  font-family: var(--default-font-family);
+
+  ::ng-deep * {
+    box-sizing: border-box;
+  }
+}

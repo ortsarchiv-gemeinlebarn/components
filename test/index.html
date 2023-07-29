@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Components</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <h1>Elementt</h1>
+  <oag-components-hero id="hero" title="Oida!"></oag-components-hero>
+
+  <h1>Angular</h1>
+  <oag-root></oag-root>
+
+  <script>
+    const hero = document.getElementById('hero');
+    hero.data = {
+      title: "geht doch!"
+    }
+  </script>
+  <script src="/dist/components/runtime.e13c8768ff6acb57.js" type="module"></script>
+  <script src="/dist/components/polyfills.d8f4cbabcab59a3b.js" type="module"></script>
+  <script src="/dist/components/main.e21e13e51b211d58.js" type="module"></script>
+</body>
+
+</body>
+
+</html>
