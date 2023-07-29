@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="control control--back">
+    <button (click)="onClickBack()">B</button>
+  </div>
+  <div class="content">
+    <oag-figure [caption]="current.caption" [reference]="current.reference" ngProjectAs='[foo]'>
+      <img [src]="current.src" />
+    </oag-figure>
+  </div>
+  <div class="control control--forward">
+    <button (click)="onClickForward()">F</button>
+  </div>
+</div>

@@ -11,6 +11,9 @@ import { createApplication } from '@angular/platform-browser';
 import { HeroComponent } from './app/hero/hero.component';
 import { ContentComponent } from './app/content/content.component';
 import { ApplicationComponent } from './app/application/application.component';
+import { FigureComponent } from './app/figure/figure.component';
+import { ReferenceComponent } from './app/reference/reference.component';
+import { HorizontalGalleryComponent } from './app/horizontal-gallery/horizontal-gallery.component';
 
 (async () => {
 
@@ -20,12 +23,15 @@ import { ApplicationComponent } from './app/application/application.component';
     ],
   });
 
-  const application = createCustomElement(ApplicationComponent, { injector: app.injector });
-  const heroElement = createCustomElement(HeroComponent, { injector: app.injector });
-  const contentComponent = createCustomElement(ContentComponent, { injector: app.injector });
+  const hero = createCustomElement(HeroComponent, { injector: app.injector });
+  const content = createCustomElement(ContentComponent, { injector: app.injector });
+  const figure = createCustomElement(FigureComponent, { injector: app.injector });
 
-  customElements.define('oag-application', application);
-  customElements.define('oag-hero', heroElement);
-  customElements.define('oag-content', contentComponent);
+  customElements.define('oag-application', createCustomElement(ApplicationComponent, { injector: app.injector }));
+  customElements.define('oag-hero', hero);
+  customElements.define('oag-content', content);
+  customElements.define('oag-figure', figure);
+  customElements.define('oag-reference', createCustomElement(ReferenceComponent, { injector: app.injector }));
+  customElements.define('oag-horizontal-gallery', createCustomElement(HorizontalGalleryComponent, { injector: app.injector }));
 
 })();

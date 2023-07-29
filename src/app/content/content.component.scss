@@ -1,6 +1,7 @@
 :host {
   width: 100%;
   display: block;
+  padding: 0 var(--layout-padding);
 
   .container {
     margin: 0px auto;
@@ -11,5 +12,9 @@
 
   &[max-width=outer] .container {
     max-width: var(--layout-outer-max-width);
+  }
+
+  &[max-width=full] .container {
+    max-width: 100%;
   }
 }
