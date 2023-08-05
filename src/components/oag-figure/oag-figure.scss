@@ -1,0 +1,101 @@
+:host {
+    display: block;
+    width: 100%;
+    padding: var(--layout-padding);
+
+    figure {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        max-width: var(--layout-inner-max-width);
+
+        .content {
+            display: block;
+            border-radius: var(--default-radius);
+            overflow: hidden;
+            line-height: 0;
+            position: relative;
+
+            ::slotted(img),
+            ::slotted(video) {
+                width: 100%;
+            }
+        }
+
+        figcaption {
+            display: flex;
+            flex-direction: row;
+            gap: 2em;
+            position: relative;
+            max-width: var(--layout-inner-max-width);
+            margin: 0 auto;
+            margin-top: 1em;
+            justify-content: space-between;
+
+            .caption {
+                color: #777;
+            }
+
+            .reference {
+                display: inline-flex;
+                flex-direction: row;
+                color: #999;
+                overflow: hidden;
+                background-color: #f4f4f4;
+                padding: 0.5em;
+                border-radius: var(--default-radius);
+                text-decoration: none;
+
+                svg {
+                    height: 1em;
+                    width: 1em;
+                }
+
+                &>span {
+                    transition: all ease 1s;
+                    width: auto;
+                    max-width: 0px;
+                    white-space: nowrap;
+                    line-height: 1;
+
+                    &>span {
+                        padding-left: 1em;
+                    }
+                }
+
+                &:hover {
+                    background-color: #ddd;
+                    color: #000;
+                    cursor: pointer;
+
+                    &>span {
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+:host([max-width=outer]) {
+
+    figure {
+        max-width: var(--layout-outer-max-width);
+    }
+}
+
+:host([max-width=full]) {
+    padding: 0;
+
+    .content {
+        border-radius: 0;
+    }
+
+    figure {
+        max-width: 100%;
+    }
+
+    figcaption {
+        padding: 0 var(--layout-padding);
+    }
+}

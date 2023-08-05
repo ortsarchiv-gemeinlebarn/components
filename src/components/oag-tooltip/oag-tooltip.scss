@@ -1,0 +1,103 @@
+:host {
+    display: block;
+    position: absolute;
+
+    --tooltip-background-rgb: 219, 207, 33;
+    --tooltip-symbol-invert: 0;
+    --length: 2em;
+    --max-scale: 1;
+    --min-scale: 1;
+
+    --background-color: rgb(var(--tooltip-background-rgb));
+    --background-color-hover: color-mix(in srgb, rgb(var(--tooltip-background-rgb)) 85%, black);
+    --background-color-active: color-mix(in srgb, rgb(var(--tooltip-background-rgb)) 70%, black);
+    --background-color-pulse-start: rgba(var(--tooltip-background-rgb), 0.8);
+    --background-color-pulse-end: rgba(var(--tooltip-background-rgb), 0);
+    --tooltip-symbol-color-hover: var(--tooltip-symbol-color);
+    --tooltip-symbol-color-active: var(--tooltip-symbol-color);
+
+    &:host(.collapsed) {
+
+        .trigger {
+            animation: pulse 2s infinite;
+        }
+
+        .content {
+            display: none;
+        }
+    }
+
+    .content {
+        display: inline-block;
+        background-color: #fff;
+        padding: var(--component-padding);
+        padding-bottom: calc(var(--component-padding) * 0.9);
+        border-radius: var(--default-radius);
+
+        ::slotted(p) {
+            display: block !important;
+        }
+
+        ::slotted(*:first-child) {
+            margin-top: 0 !important;
+        }
+
+        ::slotted(*:last-child) {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .trigger {
+        width: var(--length);
+        height: var(--length);
+        margin-top: calc(-1 * var(--length) / 2);
+        margin-left: calc(-1 * var(--length) / 2);
+        border-radius: 50%;
+        background: var(--background-color);
+        box-shadow: 0 0 0 0 var(--background-color);
+        transition: all ease 300ms;
+        animation: none;
+        display: block;
+        position: absolute;
+
+        .icon {
+            display: block;
+            width: 50%;
+            height: 50%;
+            margin: 25%;
+
+            svg {
+                filter: unquote("invert(var(--tooltip-symbol-invert))");
+            }
+        }
+
+        &:hover {
+            --background-color: var(--background-color-hover);
+            --tooltip-symbol-color: var(--tooltip-symbol-color-hover);
+            cursor: pointer;
+        }
+
+        &:active {
+            --background-color: var(--background-color-active);
+            --tooltip-symbol-color: var(--tooltip-symbol-color-active);
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(var(--min-scale));
+                box-shadow: 0 0 0 0 var(--background-color-pulse-start);
+            }
+
+            70% {
+                transform: scale(var(--max-scale));
+                box-shadow: 0 0 0 10px var(--background-color-pulse-end);
+            }
+
+            100% {
+                transform: scale(var(--min-scale));
+                box-shadow: 0 0 0 0 var(--background-color-pulse-end);
+            }
+        }
+    }
+}

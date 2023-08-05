@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    background-color: #f4f4f4;
+
+    --padding: calc(2 * var(--layout-padding));
+
+    @include global-text;
+
+    oag-content {
+        padding-top: var(--padding);
+        padding-bottom: var(--padding);
+
+        .logo {
+            max-width: 120px;
+            width: 100%;
+            margin-bottom: 2em;
+        }
+
+        .website-link {
+            margin-top: 2em;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+:host {
+    width: 100%;
+    display: block;
+    padding: 0 var(--layout-padding);
+    box-sizing: border-box;
+
+    .container {
+        margin: 0px auto;
+        display: flex;
+        flex-direction: column;
+        max-width: var(--layout-inner-max-width);
+    }
+}
+
+:host([max-width=outer]) {
+    .container {
+        max-width: var(--layout-outer-max-width);
+    }
+}
+
+:host([max-width=full]) {
+    .container {
+        max-width: 100%;
+    }
+}
