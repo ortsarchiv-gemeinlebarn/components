@@ -1,7 +1,11 @@
 {
     "name": "@ortsarchiv-gemeinlebarn/components",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Ortsarchiv Gemeinelbarn Web Components",
+    "author": {
+        "name": "Jakob Vesely",
+        "url": "https://www.jakob.fyi"
+    },
     "main": "dist/index.cjs.js",
     "module": "dist/index.js",
     "es2015": "dist/esm/index.mjs",
