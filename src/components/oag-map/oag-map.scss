@@ -10,9 +10,10 @@
     --ol-control-attribution-text-color: #555555;
     --ol-control-attribution-background-color: #fff;
     --ol-control-gap: .75em;
+    --map-height: 500px;
 
     display: block;
-    height: 500px;
+    height: var(--map-height);
     background-color: #555;
 
     .map-element {
