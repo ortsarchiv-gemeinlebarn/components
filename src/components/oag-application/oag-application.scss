@@ -1,9 +1,13 @@
 :host {
+    --section-gap-height: var(--default-layout-padding);
+    --font-family: var(--default-text-font-family);
+    --base-font-family: 16px;
+
     display: flex;
     flex-direction: column;
-    gap: var(--layout-padding);
+    gap: var(--section-gap-height);
     overflow: auto;
     box-sizing: border-box;
-    font-family: var(--default-text-font-family);
-    font-size: 16px;
+    font-family: var(--font-family);
+    font-size: var(--base-font-family);
 }

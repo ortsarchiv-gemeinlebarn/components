@@ -1,4 +1,11 @@
 :host {
+    --layout-padding: var(--default-layout-padding);
+    --layout-inner-max-width: var(--default-layout-inner-max-width);
+    --layout-outer-max-width: var(--default-layout-outer-max-width);
+    --container-radius: var(--default-radius);
+    --overlay-padding: calc(1.5 * var(--default-layout-padding));
+    --logo-outer-position: calc(1.65 * var(--default-layout-padding));
+
     display: flex;
     width: 100%;
     height: 100vh;
@@ -13,7 +20,7 @@
         height: 100%;
         background-size: cover;
         background-position: center center;
-        border-radius: var(--default-radius);
+        border-radius: var(--container-radius);
         overflow: hidden;
         box-sizing: border-box;
 
@@ -24,7 +31,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: calc(1.5 * var(--layout-padding));
+            padding: var(--overlay-padding);
             box-sizing: border-box;
             position: relative;
 
@@ -32,8 +39,8 @@
                 display: block;
                 position: absolute;
                 width: 160px;
-                left: calc(1.65 * var(--layout-padding));
-                bottom: calc(1.5 * var(--layout-padding));
+                left: var(--logo-outer-position);
+                bottom: var(--logo-outer-position);
                 transition: all ease 300ms;
 
                 &:hover {

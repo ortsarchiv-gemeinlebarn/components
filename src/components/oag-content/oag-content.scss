@@ -1,4 +1,8 @@
 :host {
+    --layout-padding: var(--default-layout-padding);
+    --layout-inner-max-width: var(--default-layout-inner-max-width);
+    --layout-outer-max-width: var(--default-layout-outer-max-width);
+
     width: 100%;
     display: block;
     padding: 0 var(--layout-padding);

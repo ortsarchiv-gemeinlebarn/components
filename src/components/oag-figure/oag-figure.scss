@@ -1,4 +1,9 @@
 :host {
+    --layout-padding: var(--default-layout-padding);
+    --layout-inner-max-width: var(--default-layout-inner-max-width);
+    --layout-outer-max-width: var(--default-layout-outer-max-width);
+    --content-radius: var(--default-radius);
+
     display: block;
     width: 100%;
     padding: var(--layout-padding);
@@ -11,7 +16,7 @@
 
         .content {
             display: block;
-            border-radius: var(--default-radius);
+            border-radius: var(--content-radius);
             overflow: hidden;
             line-height: 0;
             position: relative;
@@ -43,7 +48,7 @@
                 overflow: hidden;
                 background-color: #f4f4f4;
                 padding: 0.5em;
-                border-radius: var(--default-radius);
+                border-radius: var(--content-radius);
                 text-decoration: none;
 
                 svg {

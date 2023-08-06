@@ -1,9 +1,8 @@
 :host {
+    --padding: calc(2 * var(--default-layout-padding));
+
     display: block;
     background-color: #f4f4f4;
-
-    --padding: calc(2 * var(--layout-padding));
-
     @include global-text;
 
     oag-content {

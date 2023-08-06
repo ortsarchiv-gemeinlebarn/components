@@ -30,6 +30,9 @@ export namespace Components {
     }
     interface OagInformation {
     }
+    interface OagLightbox {
+        "caption": string;
+    }
     interface OagMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
     }
@@ -84,6 +87,12 @@ declare global {
         prototype: HTMLOagInformationElement;
         new (): HTMLOagInformationElement;
     };
+    interface HTMLOagLightboxElement extends Components.OagLightbox, HTMLStencilElement {
+    }
+    var HTMLOagLightboxElement: {
+        prototype: HTMLOagLightboxElement;
+        new (): HTMLOagLightboxElement;
+    };
     interface HTMLOagMapElement extends Components.OagMap, HTMLStencilElement {
     }
     var HTMLOagMapElement: {
@@ -109,6 +118,7 @@ declare global {
         "oag-hero": HTMLOagHeroElement;
         "oag-horizontal-gallery": HTMLOagHorizontalGalleryElement;
         "oag-information": HTMLOagInformationElement;
+        "oag-lightbox": HTMLOagLightboxElement;
         "oag-map": HTMLOagMapElement;
         "oag-reference": HTMLOagReferenceElement;
         "oag-tooltip": HTMLOagTooltipElement;
@@ -135,6 +145,9 @@ declare namespace LocalJSX {
     }
     interface OagInformation {
     }
+    interface OagLightbox {
+        "caption"?: string;
+    }
     interface OagMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
@@ -155,6 +168,7 @@ declare namespace LocalJSX {
         "oag-hero": OagHero;
         "oag-horizontal-gallery": OagHorizontalGallery;
         "oag-information": OagInformation;
+        "oag-lightbox": OagLightbox;
         "oag-map": OagMap;
         "oag-reference": OagReference;
         "oag-tooltip": OagTooltip;
@@ -170,6 +184,7 @@ declare module "@stencil/core" {
             "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
             "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
             "oag-information": LocalJSX.OagInformation & JSXBase.HTMLAttributes<HTMLOagInformationElement>;
+            "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
             "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;
             "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
             "oag-tooltip": LocalJSX.OagTooltip & JSXBase.HTMLAttributes<HTMLOagTooltipElement>;

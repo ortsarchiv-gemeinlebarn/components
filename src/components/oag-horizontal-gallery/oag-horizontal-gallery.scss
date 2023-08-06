@@ -1,4 +1,9 @@
 :host {
+    --layout-padding: var(--default-layout-padding);
+    --layout-inner-max-width: var(--default-layout-inner-max-width);
+    --layout-outer-max-width: var(--default-layout-outer-max-width);
+    --control-padding: var(--component-padding);
+
     width: 100%;
     display: block;
     padding: 0 var(--layout-padding);
@@ -15,7 +20,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: var(--component-padding);
+            padding: var(--control-padding);
 
             button {
                 padding: 0.8em;

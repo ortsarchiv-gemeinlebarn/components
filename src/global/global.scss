@@ -14,10 +14,10 @@ body {
 }
 
 :root {
-    --layout-inner-max-width: 800px;
-    --layout-outer-max-width: 1000px;
+    --default-layout-inner-max-width: 800px;
+    --default-layout-outer-max-width: 1000px;
 
-    --layout-padding: 2em;
+    --default-layout-padding: 2em;
     --component-padding: 1em;
 
     --default-radius: 0.4em;
@@ -34,6 +34,6 @@ body {
 
 @media screen and (max-width: 600px) {
     :root {
-        --layout-padding: 1.5em;
+        --default-layout-padding: 1.5em;
     }
 }

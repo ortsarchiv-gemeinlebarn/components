@@ -1,0 +1,103 @@
+:host {
+    --backdrop-background-color: rgba(0, 0, 0, 0.8);
+    --content-padding: 5em;
+    --caption-text-color: #fff;
+    --caption-padding: 1em;
+    --close-button-size: 3em;
+    --close-button-outer-position: 1.5em;
+    --close-button-symbol-color: #fff;
+    --close-button-symbol-color-hover: #000;
+    --image-border-radius: var(--default-radius);
+
+    display: flex;
+    flex-direction: column;
+    transition: all ease 300ms;
+
+    ::slotted(*) {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .content {
+        position: relative;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .caption,
+    .close {
+        display: none;
+    }
+}
+
+:host(:not(.opened):hover) {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+:host(.opened) {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--backdrop-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--content-padding);
+
+    ::slotted(img) {
+        border-radius: var(--image-border-radius);
+    }
+
+    .caption {
+        display: block;
+        padding: var(--caption-padding);
+        color: var(--caption-text-color);
+        font-size: 1.5em;
+        font-weight: 400;
+        line-height: 1.35;
+    }
+
+    .close {
+        width: var(--close-button-size);
+        height: var(--close-button-size);
+        padding: 0;
+        position: absolute;
+        top: var(--close-button-outer-position);
+        right: var(--close-button-outer-position);
+        background-color: transparent;
+        border: 1px var(--close-button-symbol-color) solid;
+        border-radius: 50%;
+        line-height: 0;
+        transition: all ease 300ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+
+        svg {
+            width: 60%;
+            height: 60%;
+
+            path {
+                stroke: var(--close-button-symbol-color);
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
+            background-color: var(--close-button-symbol-color);
+
+            svg path {
+                stroke: var(--close-button-symbol-color-hover);
+            }
+        }
+    }
+}
