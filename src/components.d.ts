@@ -28,6 +28,15 @@ export namespace Components {
     interface OagHorizontalGallery {
         "images": Array<GalleryItem> | string;
     }
+    interface OagImageComparison {
+        "labelLeft": string;
+        "labelRight": string;
+        "sliderIconPosition"?: any;
+        "sliderPosition": number;
+        "sliderWidth": number;
+        "srcLeft": string;
+        "srcRight": string;
+    }
     interface OagInformation {
     }
     interface OagLightbox {
@@ -42,6 +51,7 @@ export namespace Components {
     }
     interface OagTooltip {
         "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
+        "initialShow": boolean;
         "x": string;
         "y": string;
     }
@@ -81,6 +91,12 @@ declare global {
         prototype: HTMLOagHorizontalGalleryElement;
         new (): HTMLOagHorizontalGalleryElement;
     };
+    interface HTMLOagImageComparisonElement extends Components.OagImageComparison, HTMLStencilElement {
+    }
+    var HTMLOagImageComparisonElement: {
+        prototype: HTMLOagImageComparisonElement;
+        new (): HTMLOagImageComparisonElement;
+    };
     interface HTMLOagInformationElement extends Components.OagInformation, HTMLStencilElement {
     }
     var HTMLOagInformationElement: {
@@ -117,6 +133,7 @@ declare global {
         "oag-figure": HTMLOagFigureElement;
         "oag-hero": HTMLOagHeroElement;
         "oag-horizontal-gallery": HTMLOagHorizontalGalleryElement;
+        "oag-image-comparison": HTMLOagImageComparisonElement;
         "oag-information": HTMLOagInformationElement;
         "oag-lightbox": HTMLOagLightboxElement;
         "oag-map": HTMLOagMapElement;
@@ -143,6 +160,15 @@ declare namespace LocalJSX {
     interface OagHorizontalGallery {
         "images"?: Array<GalleryItem> | string;
     }
+    interface OagImageComparison {
+        "labelLeft"?: string;
+        "labelRight"?: string;
+        "sliderIconPosition"?: any;
+        "sliderPosition"?: number;
+        "sliderWidth"?: number;
+        "srcLeft"?: string;
+        "srcRight"?: string;
+    }
     interface OagInformation {
     }
     interface OagLightbox {
@@ -158,6 +184,7 @@ declare namespace LocalJSX {
     }
     interface OagTooltip {
         "icon"?: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
+        "initialShow"?: boolean;
         "x"?: string;
         "y"?: string;
     }
@@ -167,6 +194,7 @@ declare namespace LocalJSX {
         "oag-figure": OagFigure;
         "oag-hero": OagHero;
         "oag-horizontal-gallery": OagHorizontalGallery;
+        "oag-image-comparison": OagImageComparison;
         "oag-information": OagInformation;
         "oag-lightbox": OagLightbox;
         "oag-map": OagMap;
@@ -183,6 +211,7 @@ declare module "@stencil/core" {
             "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
             "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
             "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
+            "oag-image-comparison": LocalJSX.OagImageComparison & JSXBase.HTMLAttributes<HTMLOagImageComparisonElement>;
             "oag-information": LocalJSX.OagInformation & JSXBase.HTMLAttributes<HTMLOagInformationElement>;
             "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
             "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;

@@ -1,0 +1,112 @@
+:host {
+    --slider-background-color: #555;
+    --slider-background-color-hover: #000;
+    --slider-icon-background-color: #555;
+    --slider-icon-background-color-hover: #000;
+    --slider-icon-symbol-color: #fff;
+    --slider-icon-symbol-color-hover: #fff;
+    --slider-icon-symbol-size: 44px;
+    --label-background-color: #555;
+    --label-text-color: #fff;
+    --label-radius: var(--default-radius);
+    --label-inner-position: var(--default-component-padding);
+
+    display: block;
+
+    .container {
+        width: 100%;
+        position: relative;
+        user-select: none;
+
+        img {
+            width: 100%;
+            user-select: none;
+        }
+
+        .slider {
+            position: absolute;
+            height: 100%;
+            z-index: 3;
+            background-color: var(--slider-background-color);
+            top: 0;
+            transition: background-color ease 300ms;
+
+            &:hover {
+                background-color: var(--slider-background-color-hover);
+                cursor: pointer;
+            }
+
+            .icon {
+                position: absolute;
+                box-sizing: border-box;
+                border-radius: 50%;
+                top: 50%;
+                left: 50%;
+                width: var(--slider-icon-symbol-size);
+                height: var(--slider-icon-symbol-size);
+                margin-left: calc(var(--slider-icon-symbol-size) / -2);
+                margin-top: calc(var(--slider-icon-symbol-size) / -2);
+                padding: 12px;
+                background-color: var(--slider-icon-background-color);
+                transition: background-color ease 300ms;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    stroke: var(--slider-icon-symbol-color);
+
+                    path {
+                        stroke-width: 30px;
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--slider-icon-background-color-hover);
+
+                    svg {
+                        stroke: var(--slider-icon-symbol-color);
+                    }
+                }
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            right: 0;
+            opacity: 1;
+            width: 50%;
+
+            img {
+                position: absolute;
+                width: auto;
+                height: 100%;
+                top: 0;
+                right: 0;
+            }
+        }
+
+        .label {
+            background-color: var(--label-background-color);
+            color: var(--label-text-color);
+            position: absolute;
+            display: block;
+            line-height: 1;
+            z-index: 1;
+            padding: 10px 14px;
+            border-radius: var(--label-radius);
+
+            &--right {
+                right: var(--label-inner-position);
+                bottom: var(--label-inner-position);
+            }
+
+            &--left {
+                left: var(--label-inner-position);
+                bottom: var(--label-inner-position);
+            }
+        }
+    }
+}
