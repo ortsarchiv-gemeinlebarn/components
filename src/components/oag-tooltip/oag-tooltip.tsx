@@ -7,13 +7,19 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 })
 export class OagTooltip {
 
-    @State() private collapsed: boolean = true;
+    @Prop() public initialShow: boolean = false;
     @Prop() public x: string;
     @Prop() public y: string;
     @Prop() public icon: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time' = 'none';
 
+    @State() private collapsed: boolean = true;
+
     public handleClick() {
         this.collapsed = !this.collapsed;
+    }
+
+    public componentWillLoad() {
+        this.collapsed = !this.initialShow;
     }
 
     public render() {

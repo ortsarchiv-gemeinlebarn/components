@@ -15,6 +15,7 @@
     --background-color-pulse-end: rgba(var(--tooltip-background-rgb), 0);
     --tooltip-symbol-color-hover: var(--tooltip-symbol-color);
     --tooltip-symbol-color-active: var(--tooltip-symbol-color);
+    --component-padding: var(--default-component-padding);
 
     &:host(.collapsed) {
 
