@@ -11,6 +11,8 @@ export { GalleryItem } from "./models/gallery-item";
 export { Map } from "ol";
 export namespace Components {
     interface OagApplication {
+        "desktopOnly": boolean;
+        "desktopOptimized": boolean;
     }
     interface OagContent {
     }
@@ -143,6 +145,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface OagApplication {
+        "desktopOnly"?: boolean;
+        "desktopOptimized"?: boolean;
     }
     interface OagContent {
     }

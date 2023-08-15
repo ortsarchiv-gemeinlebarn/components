@@ -12,9 +12,9 @@ export class OagImageComparison {
     @Prop() public srcRight: string = '';
     @Prop() public labelLeft: string = '';
     @Prop() public labelRight: string = '';
-    @Prop() public sliderPosition = 50;
     @Prop() public sliderWidth = 4;
     @Prop() public sliderIconPosition?= undefined;
+    @Prop() public sliderPosition = 50;
 
     @State() public width: number = 370;
 
@@ -42,10 +42,7 @@ export class OagImageComparison {
     public componentDidLoad() {
         this.setOverlayWidth(this.sliderPosition);
 
-        this.el.addEventListener("mouseup", () => {
-            this.el.removeEventListener("mousemove", this.onDraggerDown, false);
-        }, false);
-
+        this.el.addEventListener("mouseup", () => this.el.removeEventListener("mousemove", this.onDraggerDown, false), false);
         this.el.addEventListener("mousedown", () => this.onDraggerDown(), false);
     }
 
