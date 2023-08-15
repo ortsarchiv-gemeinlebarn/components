@@ -30,7 +30,7 @@
         "generate": "stencil generate"
     },
     "dependencies": {
-        "@stencil/core": "^4.0.3",
+        "@stencil/core": "^4.0.5",
         "ol": "^7.4.0"
     },
     "devDependencies": {
