@@ -46,6 +46,7 @@ export namespace Components {
     }
     interface OagMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "disableTouchClass": boolean;
     }
     interface OagReference {
         "label": string;
@@ -180,6 +181,7 @@ declare namespace LocalJSX {
     }
     interface OagMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "disableTouchClass"?: boolean;
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
     }
     interface OagReference {

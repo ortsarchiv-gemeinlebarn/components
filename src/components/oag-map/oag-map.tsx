@@ -33,6 +33,9 @@ export class OagMap {
     @Prop()
     public backgroundLayer: 'orthophoto' | 'standard' | 'grau' | 'osm' = 'osm';
 
+    @Prop()
+    public disableTouchClass: boolean = true;
+
     public async componentDidLoad() {
 
         this.basemapLayers = await this.getBasemapLayers();
@@ -130,7 +133,7 @@ export class OagMap {
     public render() {
         return (
             <Host>
-                <div id="map" class="map-element"></div>
+                <div id="map" class={{ 'map-element': true, 'no-ol-touch': this.disableTouchClass }}></div>
             </Host>
         );
     }

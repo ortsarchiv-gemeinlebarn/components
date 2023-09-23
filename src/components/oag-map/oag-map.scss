@@ -20,6 +20,10 @@
         display: block;
         width: 100%;
         height: 100%;
+
+        &.no-ol-touch .ol-touch .ol-control button {
+            font-size: inherit;
+        }
     }
 
     .ol-control {
