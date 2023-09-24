@@ -48,8 +48,10 @@ export class OagHero {
                             </svg>
                         </a>
                         <div class="content">
-                            <h2 class="caption">{this.caption}</h2>
-                            <h1 class="headline">{this.headline}</h1>
+                            <div class="component-content">
+                                <h2 class="caption">{this.caption}</h2>
+                                <h1 class="headline">{this.headline}</h1>
+                            </div>
                             <slot></slot>
                         </div>
                     </div>

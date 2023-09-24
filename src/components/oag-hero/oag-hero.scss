@@ -1,9 +1,13 @@
 :host {
     --layout-padding: var(--default-layout-padding);
     --layout-inner-max-width: var(--default-layout-inner-max-width);
-    --layout-outer-max-width: var(--default-layout-outer-max-width);
     --container-radius: var(--default-radius);
     --overlay-padding: calc(1.5 * var(--default-layout-padding));
+    --content-direction: column;
+    --component-content-direction: column;
+    --headline-margin: 0;
+    --caption-margin: 0 0 1em 0;
+    --logo-display: block;
     --logo-outer-position: calc(1.65 * var(--default-layout-padding));
 
     display: flex;
@@ -38,7 +42,7 @@
             position: relative;
 
             .logo {
-                display: block;
+                display: var(--logo-display);
                 position: absolute;
                 width: 160px;
                 left: var(--logo-outer-position);
@@ -57,24 +61,28 @@
 
             .content {
                 display: flex;
-                flex-direction: column;
+                flex-direction: var(--content-direction);
                 justify-content: center;
                 max-width: var(--layout-inner-max-width);
                 width: 100%;
                 color: #fff;
                 box-sizing: border-box;
 
-                .headline {
-                    font-size: 3em;
-                    font-weight: 500;
-                    margin: 0px;
-                }
+                .component-content {
+                    display: flex;
+                    flex-direction: var(--component-content-direction);
 
-                .caption {
-                    font-size: 2em;
-                    font-weight: 300;
-                    margin: 0px;
-                    margin-bottom: 1em;
+                    .headline {
+                        font-size: 3em;
+                        font-weight: 500;
+                        margin: 0px;
+                    }
+
+                    .caption {
+                        font-size: 2em;
+                        font-weight: 300;
+                        margin: var(--caption-margin);
+                    }
                 }
             }
         }
