@@ -52,6 +52,21 @@ export namespace Components {
         "label": string;
         "referenceCode": string;
     }
+    interface OagScreenBackgroundLayerItem {
+        "active": boolean;
+        "slug": string;
+    }
+    interface OagScreenContentLayerItem {
+        "color": string;
+        "hide": boolean;
+        "slug": string;
+    }
+    interface OagScreenMap {
+        "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "labelClose": string;
+        "labelOpen": string;
+        "opened": boolean;
+    }
     interface OagTooltip {
         "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
         "initialShow": boolean;
@@ -62,6 +77,14 @@ export namespace Components {
 export interface OagMapCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLOagMapElement;
+}
+export interface OagScreenContentLayerItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLOagScreenContentLayerItemElement;
+}
+export interface OagScreenMapCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLOagScreenMapElement;
 }
 declare global {
     interface HTMLOagApplicationElement extends Components.OagApplication, HTMLStencilElement {
@@ -124,6 +147,24 @@ declare global {
         prototype: HTMLOagReferenceElement;
         new (): HTMLOagReferenceElement;
     };
+    interface HTMLOagScreenBackgroundLayerItemElement extends Components.OagScreenBackgroundLayerItem, HTMLStencilElement {
+    }
+    var HTMLOagScreenBackgroundLayerItemElement: {
+        prototype: HTMLOagScreenBackgroundLayerItemElement;
+        new (): HTMLOagScreenBackgroundLayerItemElement;
+    };
+    interface HTMLOagScreenContentLayerItemElement extends Components.OagScreenContentLayerItem, HTMLStencilElement {
+    }
+    var HTMLOagScreenContentLayerItemElement: {
+        prototype: HTMLOagScreenContentLayerItemElement;
+        new (): HTMLOagScreenContentLayerItemElement;
+    };
+    interface HTMLOagScreenMapElement extends Components.OagScreenMap, HTMLStencilElement {
+    }
+    var HTMLOagScreenMapElement: {
+        prototype: HTMLOagScreenMapElement;
+        new (): HTMLOagScreenMapElement;
+    };
     interface HTMLOagTooltipElement extends Components.OagTooltip, HTMLStencilElement {
     }
     var HTMLOagTooltipElement: {
@@ -141,6 +182,9 @@ declare global {
         "oag-lightbox": HTMLOagLightboxElement;
         "oag-map": HTMLOagMapElement;
         "oag-reference": HTMLOagReferenceElement;
+        "oag-screen-background-layer-item": HTMLOagScreenBackgroundLayerItemElement;
+        "oag-screen-content-layer-item": HTMLOagScreenContentLayerItemElement;
+        "oag-screen-map": HTMLOagScreenMapElement;
         "oag-tooltip": HTMLOagTooltipElement;
     }
 }
@@ -188,6 +232,25 @@ declare namespace LocalJSX {
         "label"?: string;
         "referenceCode"?: string;
     }
+    interface OagScreenBackgroundLayerItem {
+        "active"?: boolean;
+        "slug"?: string;
+    }
+    interface OagScreenContentLayerItem {
+        "color"?: string;
+        "hide"?: boolean;
+        "onHideLayer"?: (event: OagScreenContentLayerItemCustomEvent<string>) => void;
+        "onHighlightLayer"?: (event: OagScreenContentLayerItemCustomEvent<string>) => void;
+        "onShowLayer"?: (event: OagScreenContentLayerItemCustomEvent<string>) => void;
+        "slug"?: string;
+    }
+    interface OagScreenMap {
+        "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "labelClose"?: string;
+        "labelOpen"?: string;
+        "onReadyMap"?: (event: OagScreenMapCustomEvent<Map>) => void;
+        "opened"?: boolean;
+    }
     interface OagTooltip {
         "icon"?: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
         "initialShow"?: boolean;
@@ -205,6 +268,9 @@ declare namespace LocalJSX {
         "oag-lightbox": OagLightbox;
         "oag-map": OagMap;
         "oag-reference": OagReference;
+        "oag-screen-background-layer-item": OagScreenBackgroundLayerItem;
+        "oag-screen-content-layer-item": OagScreenContentLayerItem;
+        "oag-screen-map": OagScreenMap;
         "oag-tooltip": OagTooltip;
     }
 }
@@ -222,6 +288,9 @@ declare module "@stencil/core" {
             "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
             "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;
             "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
+            "oag-screen-background-layer-item": LocalJSX.OagScreenBackgroundLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;
+            "oag-screen-content-layer-item": LocalJSX.OagScreenContentLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenContentLayerItemElement>;
+            "oag-screen-map": LocalJSX.OagScreenMap & JSXBase.HTMLAttributes<HTMLOagScreenMapElement>;
             "oag-tooltip": LocalJSX.OagTooltip & JSXBase.HTMLAttributes<HTMLOagTooltipElement>;
         }
     }

@@ -1,0 +1,126 @@
+.oag-map {
+    --ol-control-radius: var(--default-radius);
+    --ol-control-background-color: rgba(200, 200, 200, 0.5);
+    --ol-control-button-text-color: #555;
+    --ol-control-button-background-color: #ffffff;
+    --ol-control-button-text-color-hover: #000000;
+    --ol-control-button-background-color-hover: #eeeeee;
+    --ol-control-button-text-color-active: #000000;
+    --ol-control-button-background-color-active: #dddddd;
+    --ol-control-attribution-text-color: #555555;
+    --ol-control-attribution-background-color: #fff;
+    --ol-control-gap: .75em;
+
+    .map-element {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        &.no-ol-touch .ol-touch .ol-control button {
+            font-size: inherit;
+        }
+    }
+
+    .ol-control {
+        position: absolute;
+        font-size: 1.2em;
+
+        &.ol-full-screen {
+            top: var(--ol-control-gap);
+            right: var(--ol-control-gap);
+        }
+
+        &.ol-zoom {
+            top: 3em;
+            right: var(--ol-control-gap);
+
+            .ol-zoom-in {
+                border-radius: var(--ol-control-radius) var(--ol-control-radius) 0 0;
+            }
+
+            .ol-zoom-out {
+                border-radius: 0 0 var(--ol-control-radius) var(--ol-control-radius);
+            }
+        }
+
+        &.ol-attribution {
+            text-align: right;
+            bottom: var(--ol-control-gap);
+            right: var(--ol-control-gap);
+            max-width: calc(100% - 1.3em);
+            display: flex;
+            flex-flow: row-reverse;
+            align-items: center;
+
+            a {
+                color: var(--ol-control-attribution-text-color);
+                text-decoration: none;
+            }
+
+            ul {
+                margin: 0;
+                color: var(--ol-control-attribution-text-color);
+                font-size: 12px;
+                display: flex;
+                padding: 1em;
+                background: var(--ol-control-attribution-background-color);
+                gap: .5em;
+                background-color: var(--ol-control-button-background-color);
+                border: 1px var(--ol-control-background-color) solid;
+                border-radius: var(--ol-control-radius);
+                transition: all ease 300ms;
+                margin-right: 0.5em;
+
+                li {
+                    display: inline-block;
+                    list-style: none;
+                    line-height: 1;
+                }
+            }
+
+            button {
+                flex-shrink: 0;
+            }
+
+            &.ol-collapsed ul {
+                display: none;
+            }
+        }
+
+        button {
+            display: block;
+            margin: 0;
+            padding: 0;
+            color: var(--ol-control-button-text-color);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: inherit;
+            text-align: center;
+            height: 1.75em;
+            width: 1.75em;
+            line-height: 0;
+            background-color: var(--ol-control-button-background-color);
+            border: 1px var(--ol-control-background-color) solid;
+            border-radius: var(--ol-control-radius);
+            transition: all ease 300ms;
+
+            &:hover {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--ol-control-button-text-color-hover);
+                background-color: var(--ol-control-button-background-color-hover);
+            }
+
+            &:active {
+                color: var(--ol-control-button-text-color-active);
+                background-color: var(--ol-control-button-background-color-active);
+            }
+        }
+
+    }
+
+    .ol-touch .ol-control button {
+        font-size: 1.75em;
+    }
+
+}

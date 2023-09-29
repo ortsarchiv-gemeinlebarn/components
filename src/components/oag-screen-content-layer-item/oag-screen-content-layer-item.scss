@@ -1,0 +1,61 @@
+:host {
+    @include screen-content-item-base;
+    flex-direction: column;
+
+    --button-background-color: #fff;
+    --button-background-color-hover: #eee;
+    --button-border-color: #e8ecf1;
+
+
+    .head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5em;
+
+        .color {
+            background-color: #000;
+            border: 1px solid #ddd;
+            width: 1rem;
+            height: 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .label {
+            flex: 1;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+
+        button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: var(--button-background-color);
+            border-radius: var(--border-radius);
+            padding: 0.4em 1em;
+            gap: 0.35em;
+            border: 1px solid var(--button-border-color);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all ease 300ms;
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            span {
+                line-height: 1;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: var(--button-background-color-hover);
+            }
+        }
+    }
+}

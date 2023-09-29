@@ -43,7 +43,8 @@ export const config: Config = {
             injectGlobalPaths: [
                 'src/global/variables.scss',
                 'src/global/fonts.scss',
-                'src/global/mixins.scss'
+                'src/global/mixins.scss',
+                'src/global/maps.scss'
             ]
         })
     ]
