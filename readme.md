@@ -21,6 +21,7 @@
 
 ### Version 2.8.0
 
+- [Feature] Add disable OL Touch Option to Screen Map
 - [Feature] Docs Generating and linked in ReadMe
 - [Feature] CSS Variables for Logo Position on Header
 

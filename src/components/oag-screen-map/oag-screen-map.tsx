@@ -21,6 +21,9 @@ export class OagScreenMap {
     @Element() private element: HTMLElement;
 
     @Prop()
+    public disableTouchClass: boolean = true;
+
+    @Prop()
     public backgroundLayer: 'orthophoto' | 'standard' | 'grau' | 'osm' = 'orthophoto';
 
     @Prop() public opened: boolean = false;
@@ -151,7 +154,7 @@ export class OagScreenMap {
                 </div>
                 <div class="screen">
                     <div class="screen__container">
-                        <div class="map" id="map"></div>
+                        <div id="map" class={{ 'map': true, 'no-ol-touch': this.disableTouchClass }}></div>
                         <div class="content">
                             <slot></slot>
                         </div>

@@ -117,6 +117,10 @@
                 flex: 1;
 
                 @extend .oag-map;
+
+                &.no-ol-touch .ol-touch .ol-control button {
+                    font-size: inherit;
+                }
             }
 
             .content {
