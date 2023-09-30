@@ -22,6 +22,7 @@ export const config: Config = {
         },
         {
             type: 'docs-readme',
+            dir: 'docs'
         },
         {
             type: 'www',
