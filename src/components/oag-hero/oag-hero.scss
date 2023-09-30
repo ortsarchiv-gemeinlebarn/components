@@ -8,7 +8,11 @@
     --headline-margin: 0;
     --caption-margin: 0 0 1em 0;
     --logo-display: block;
-    --logo-outer-position: calc(1.65 * var(--default-layout-padding));
+    --logo-position: absolute;
+    --logo-position-top: calc(1.65 * var(--default-layout-padding));
+    --logo-position-right: none;
+    --logo-position-bottom: none;
+    --logo-position-left: calc(1.65 * var(--default-layout-padding));
 
     display: flex;
     width: 100%;
@@ -43,10 +47,12 @@
 
             .logo {
                 display: var(--logo-display);
-                position: absolute;
+                position: var(--logo-position);
                 width: 160px;
-                left: var(--logo-outer-position);
-                bottom: var(--logo-outer-position);
+                top: var(--logo-position-top);
+                right: var(--logo-position-right);
+                bottom: var(--logo-position-bottom);
+                left: var(--logo-position-left);
                 transition: all ease 300ms;
 
                 &:hover {
