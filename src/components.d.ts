@@ -63,6 +63,7 @@ export namespace Components {
     }
     interface OagScreenMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "disableTouchClass": boolean;
         "labelClose": string;
         "labelOpen": string;
         "opened": boolean;
@@ -246,6 +247,7 @@ declare namespace LocalJSX {
     }
     interface OagScreenMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "disableTouchClass"?: boolean;
         "labelClose"?: string;
         "labelOpen"?: string;
         "onReadyMap"?: (event: OagScreenMapCustomEvent<Map>) => void;

@@ -19,6 +19,10 @@
 
 ## Changelog
 
+### Version 2.9.0
+
+- [Feature] Figure without Reference
+
 ### Version 2.8.0
 
 - [Feature] Add Pulsate Class for Feature Animation in Maps
