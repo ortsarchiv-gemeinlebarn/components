@@ -1,6 +1,5 @@
 import { Component, Event, h, Element, EventEmitter, Host, Prop } from '@stencil/core';
 import { Map } from 'ol';
-import OSM from 'ol/source/OSM';
 import WMTS, { optionsFromCapabilities } from 'ol/source/WMTS';
 import { Tile as TileLayer } from 'ol/layer';
 import View from 'ol/View';
@@ -33,13 +32,6 @@ export class OagScreenMap {
     private basemapLayers?: BasemapLayers;
     private map: Map;
 
-    public osm = new TileLayer({
-        source: new OSM(),
-        visible: true,
-        zIndex: 1,
-        properties: { name: 'osm' }
-    });
-
     public async componentDidLoad() {
         this.basemapLayers = await this.getBasemapLayers();
         const mapOptions: MapOptions = {
@@ -53,7 +45,7 @@ export class OagScreenMap {
                     collapsed: true
                 })
             ],
-            layers: [this.osm],
+            layers: [],
             view: new View({
                 center: [
                     1759358.246011,
@@ -64,8 +56,6 @@ export class OagScreenMap {
         };
 
         this.map = new Map(mapOptions);
-
-        this.setBasemapLayer(this.backgroundLayer);
         this.readyMap.emit(this.map);
     }
 
@@ -127,8 +117,6 @@ export class OagScreenMap {
         if (!this.basemapLayers || backgroundLayer == 'osm') {
             return;
         }
-
-        this.osm.setVisible(false);
 
         if (backgroundLayer == 'orthophoto') {
             this.map.addLayer(this.basemapLayers?.orthophoto);

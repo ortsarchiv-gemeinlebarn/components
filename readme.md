@@ -2,6 +2,7 @@
 
 ## Components
 
+- [`oag-gallery`](./docs/components/oag-gallery/readme.md)
 - [`oag-application`](./docs/components/oag-application/readme.md)
 - [`oag-content`](./docs/components/oag-content/readme.md)
 - [`oag-figure`](./docs/components/oag-figure/readme.md)
@@ -18,6 +19,11 @@
 - [`oag-tooltip`](./docs/components/oag-tooltip/readme.md)
 
 ## Changelog
+
+### Version 2.10.0
+
+- [Feature] New Gallery Grid Component (Lightbox)
+- [Bugfix] Empty Layers on Screen Map
 
 ### Version 2.9.0
 

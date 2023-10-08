@@ -1,0 +1,73 @@
+:host {
+    --gap: 0em;
+    --item-border-radius: 0;
+    --item-min-width: 250px;
+    --item-background-color: #333;
+    --item-aspect-ratio: 1;
+
+    @include global-buttons;
+
+    .container {
+
+        #gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(var(--item-min-width), 1fr));
+            line-height: 0;
+            width: 100%;
+            gap: var(--gap);
+
+            .item {
+                display: block;
+                background-color: var(--item-background-color);
+                aspect-ratio: var(--item-aspect-ratio);
+                height: 100%;
+                width: 100%;
+
+                img {
+                    transition: all ease 300ms;
+                    border-radius: var(--item-border-radius);
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center center;
+                }
+            }
+        }
+
+        .preview {
+            position: relative;
+            padding: 2em;
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+            &:before {
+                content: '';
+                background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+                position: absolute;
+                top: -99px;
+                left: 0;
+                width: 100%;
+                height: 100px;
+            }
+        }
+
+        &--in-preview {
+
+            #gallery {
+                overflow: hidden;
+                height: 400px;
+            }
+
+            .preview {
+                display: flex;
+            }
+        }
+    }
+
+}

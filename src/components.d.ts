@@ -21,6 +21,10 @@ export namespace Components {
         "maxWidth": 'inner' | 'outer';
         "reference": string;
     }
+    interface OagGallery {
+        "images": Array<GalleryItem> | string;
+        "preview": boolean;
+    }
     interface OagHero {
         "backgroundImage": string;
         "backgroundOverlay": string;
@@ -106,6 +110,12 @@ declare global {
         prototype: HTMLOagFigureElement;
         new (): HTMLOagFigureElement;
     };
+    interface HTMLOagGalleryElement extends Components.OagGallery, HTMLStencilElement {
+    }
+    var HTMLOagGalleryElement: {
+        prototype: HTMLOagGalleryElement;
+        new (): HTMLOagGalleryElement;
+    };
     interface HTMLOagHeroElement extends Components.OagHero, HTMLStencilElement {
     }
     var HTMLOagHeroElement: {
@@ -176,6 +186,7 @@ declare global {
         "oag-application": HTMLOagApplicationElement;
         "oag-content": HTMLOagContentElement;
         "oag-figure": HTMLOagFigureElement;
+        "oag-gallery": HTMLOagGalleryElement;
         "oag-hero": HTMLOagHeroElement;
         "oag-horizontal-gallery": HTMLOagHorizontalGalleryElement;
         "oag-image-comparison": HTMLOagImageComparisonElement;
@@ -200,6 +211,10 @@ declare namespace LocalJSX {
         "caption"?: string;
         "maxWidth"?: 'inner' | 'outer';
         "reference"?: string;
+    }
+    interface OagGallery {
+        "images"?: Array<GalleryItem> | string;
+        "preview"?: boolean;
     }
     interface OagHero {
         "backgroundImage"?: string;
@@ -263,6 +278,7 @@ declare namespace LocalJSX {
         "oag-application": OagApplication;
         "oag-content": OagContent;
         "oag-figure": OagFigure;
+        "oag-gallery": OagGallery;
         "oag-hero": OagHero;
         "oag-horizontal-gallery": OagHorizontalGallery;
         "oag-image-comparison": OagImageComparison;
@@ -283,6 +299,7 @@ declare module "@stencil/core" {
             "oag-application": LocalJSX.OagApplication & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
             "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
             "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
+            "oag-gallery": LocalJSX.OagGallery & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
             "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
             "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
             "oag-image-comparison": LocalJSX.OagImageComparison & JSXBase.HTMLAttributes<HTMLOagImageComparisonElement>;

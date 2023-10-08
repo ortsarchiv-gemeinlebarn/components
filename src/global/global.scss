@@ -13,8 +13,33 @@ body {
     padding: 0;
 }
 
-/* Global Text Styles */
+/* Simple Lightbox */
+$sl-font-family: 'Jost', serif;
+$sl-overlay-background: #000;
+$sl-navigation-color: #fff;
+$sl-caption-color: #fff;
+$sl-caption-background: transparent;
 
+@import '~simplelightbox/src/simple-lightbox.scss';
+
+.sl-image img {
+    border-radius: var(--default-radius);
+}
+
+.sl-counter,
+.sl-caption {
+    font-family: var(--default-text-font-family);
+}
+
+.sl-close,
+.sl-prev,
+.sl-next {
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+/* Global Text Styles */
 @include global-text;
 @include global-buttons;
 
