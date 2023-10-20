@@ -11,6 +11,14 @@
 | ------------------ | ------------------- | ----------- | --------- | ------- |
 | `desktopOnly`      | `desktop-only`      |             | `boolean` | `false` |
 | `desktopOptimized` | `desktop-optimized` |             | `boolean` | `false` |
+| `loadedDelay`      | `loaded-delay`      |             | `number`  | `1000`  |
+
+
+## Events
+
+| Event    | Description | Type                |
+| -------- | ----------- | ------------------- |
+| `loaded` |             | `CustomEvent<void>` |
 
 
 ----------------------------------------------

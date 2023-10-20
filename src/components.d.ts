@@ -13,6 +13,7 @@ export namespace Components {
     interface OagApplication {
         "desktopOnly": boolean;
         "desktopOptimized": boolean;
+        "loadedDelay": number;
     }
     interface OagContent {
     }
@@ -78,6 +79,10 @@ export namespace Components {
         "x": string;
         "y": string;
     }
+}
+export interface OagApplicationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLOagApplicationElement;
 }
 export interface OagMapCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -204,6 +209,8 @@ declare namespace LocalJSX {
     interface OagApplication {
         "desktopOnly"?: boolean;
         "desktopOptimized"?: boolean;
+        "loadedDelay"?: number;
+        "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
     }
     interface OagContent {
     }

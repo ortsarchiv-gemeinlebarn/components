@@ -1,4 +1,4 @@
-import { Component, Host, Prop, State, h } from '@stencil/core';
+import { Component, Host, Prop, State, h, Event, EventEmitter } from '@stencil/core';
 
 @Component({
     tag: 'oag-application',
@@ -11,8 +11,15 @@ export class OagApplication {
     @Prop() public desktopOnly: boolean = false;
     @State() public confirmed: boolean = false;
 
+    @Prop() loadedDelay: number = 1000;
+    @Event() loaded: EventEmitter<void>;
+
     public confirm() {
         this.confirmed = true;
+    }
+
+    public componentDidLoad() {
+        setTimeout(() => this.loaded.emit(), this.loadedDelay);
     }
 
     render() {
