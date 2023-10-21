@@ -13,9 +13,15 @@ export class OagReference {
     @Prop()
     public referenceCode: string = '';
 
+    @Prop()
+    public content: 'quelle' | 'literatur' = 'quelle';
+
     render() {
         return (
             <Host>
+                <div class="slot-content">
+                    <slot></slot>
+                </div>
                 <div class="label">{this.label}</div>
                 <div class="reference-code">{this.referenceCode}</div>
             </Host>

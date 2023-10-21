@@ -54,6 +54,7 @@ export namespace Components {
         "disableTouchClass": boolean;
     }
     interface OagReference {
+        "content": 'quelle' | 'literatur';
         "label": string;
         "referenceCode": string;
     }
@@ -252,6 +253,7 @@ declare namespace LocalJSX {
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
     }
     interface OagReference {
+        "content"?: 'quelle' | 'literatur';
         "label"?: string;
         "referenceCode"?: string;
     }

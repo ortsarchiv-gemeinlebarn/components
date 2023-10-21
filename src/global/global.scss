@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth !important;
 }
 
 html,
@@ -11,6 +12,7 @@ body {
     margin: 0;
     border: 0;
     padding: 0;
+    scroll-behavior: smooth !important;
 }
 
 /* Simple Lightbox */
