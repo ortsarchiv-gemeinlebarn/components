@@ -29,7 +29,7 @@ export class OagGallery {
         this.imagesWatcher(this.images);
     }
 
-    public componentDidRender() {
+    public componentDidLoad() {
         const items: any = this.element.shadowRoot.querySelectorAll("#gallery > .item");
         this.gallery = new SimpleLightbox(items, {
             captionPosition: 'outside',
