@@ -31,6 +31,8 @@ export namespace Components {
         "backgroundOverlay": string;
         "caption": string;
         "headline": string;
+        "scrollIndicator": boolean;
+        "scrollIndicatorLabel": string;
     }
     interface OagHorizontalGallery {
         "images": Array<GalleryItem> | string;
@@ -229,6 +231,8 @@ declare namespace LocalJSX {
         "backgroundOverlay"?: string;
         "caption"?: string;
         "headline"?: string;
+        "scrollIndicator"?: boolean;
+        "scrollIndicatorLabel"?: string;
     }
     interface OagHorizontalGallery {
         "images"?: Array<GalleryItem> | string;

@@ -1,4 +1,5 @@
 :host {
+    --text-color: #fff;
     --layout-padding: var(--default-layout-padding);
     --layout-inner-max-width: var(--default-layout-inner-max-width);
     --container-radius: var(--default-radius);
@@ -61,7 +62,7 @@
 
                 svg {
                     width: 100%;
-                    fill: #fff;
+                    fill: var(--text-color);
                 }
             }
 
@@ -71,7 +72,7 @@
                 justify-content: center;
                 max-width: var(--layout-inner-max-width);
                 width: 100%;
-                color: #fff;
+                color: var(--text-color);
                 box-sizing: border-box;
 
                 .component-content {
@@ -88,6 +89,54 @@
                         font-size: 2em;
                         font-weight: 300;
                         margin: var(--caption-margin);
+                    }
+                }
+
+                .scroll-indicator {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 2em;
+
+                    .mouse {
+                        width: 1.75em;
+                        height: 3em;
+                        box-sizing: border-box;
+                        border: 2px solid var(--text-color);
+                        position: relative;
+                        border-radius: 50% 50% 50% 50% / 25% 25% 25% 25%;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: 50%;
+                            top: 0;
+                            transform: translate(-50%, 50%);
+                            width: 8px;
+                            height: 8px;
+                            background: var(--text-color);
+                            border-radius: 50%;
+                            animation: fadeDown 1s ease-out infinite;
+                        }
+                    }
+
+                    .label {
+                        margin-top: 1em;
+                        font-size: 1.15em;
+                        font-weight: 500;
+                        color: var(--text-color);
+                    }
+
+                    @keyframes fadeDown {
+                        0% {
+                            top: 0%;
+                            opacity: 1;
+                        }
+
+                        100% {
+                            top: 60%;
+                            opacity: 0;
+                        }
                     }
                 }
             }

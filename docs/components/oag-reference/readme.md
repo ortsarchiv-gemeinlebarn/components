@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type     | Default |
-| --------------- | ---------------- | ----------- | -------- | ------- |
-| `label`         | `label`          |             | `string` | `''`    |
-| `referenceCode` | `reference-code` |             | `string` | `''`    |
+| Property        | Attribute        | Description | Type                      | Default    |
+| --------------- | ---------------- | ----------- | ------------------------- | ---------- |
+| `content`       | `content`        |             | `"literatur" \| "quelle"` | `'quelle'` |
+| `label`         | `label`          |             | `string`                  | `''`       |
+| `referenceCode` | `reference-code` |             | `string`                  | `''`       |
 
 
 ----------------------------------------------
