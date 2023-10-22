@@ -55,13 +55,13 @@ export class OagHero {
                                 <h1 class="headline">{this.headline}</h1>
                             </div>
                             <slot></slot>
-                            {this.scrollIndicator &&
-                                <div class="scroll-indicator">
-                                    <div class="mouse"></div>
-                                    <div class="label">{this.scrollIndicatorLabel}</div>
-                                </div>
-                            }
                         </div>
+                        {this.scrollIndicator &&
+                            <div class="scroll-indicator">
+                                <div class="mouse"></div>
+                                <div class="label">{this.scrollIndicatorLabel}</div>
+                            </div>
+                        }
                     </div>
                 </div>
             </Host>
