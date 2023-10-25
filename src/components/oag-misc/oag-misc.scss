@@ -1,0 +1,58 @@
+:host {
+    --background-color: #f4f4f4;
+    --border-radius: var(--default-radius);
+    --padding: var(--default-layout-padding);
+    --size: 6em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+    padding: var(--padding);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 2em;
+
+    .image {
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    .content {
+        flex: 1;
+
+        .label {
+            font-size: 1.35em;
+            font-weight: 600;
+            color: #000;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 1.05em;
+            font-weight: 500;
+            color: #555555;
+            margin: 0;
+            margin-top: 0.35em;
+        }
+
+        .text {
+            text-align: justify;
+            margin-top: 1em;
+        }
+
+        slot[name=links] {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            &::slotted(a) {
+                margin-top: 1em;
+            }
+        }
+    }
+}

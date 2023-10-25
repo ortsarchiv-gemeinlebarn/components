@@ -15,6 +15,14 @@ export namespace Components {
         "desktopOptimized": boolean;
         "loadedDelay": number;
     }
+    interface OagChangelogEntry {
+        "label": string;
+        "tags": string;
+    }
+    interface OagChangelogVersion {
+        "date": string;
+        "version": string;
+    }
     interface OagContent {
     }
     interface OagFigure {
@@ -46,14 +54,25 @@ export namespace Components {
         "srcLeft": string;
         "srcRight": string;
     }
+    interface OagImprint {
+    }
     interface OagInformation {
     }
     interface OagLightbox {
         "caption": string;
     }
+    interface OagLoading {
+        "label": string;
+        "text": string;
+    }
     interface OagMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass": boolean;
+    }
+    interface OagMisc {
+        "image": string;
+        "label": string;
+        "tagline": string;
     }
     interface OagReference {
         "content": 'quelle' | 'literatur';
@@ -106,6 +125,18 @@ declare global {
         prototype: HTMLOagApplicationElement;
         new (): HTMLOagApplicationElement;
     };
+    interface HTMLOagChangelogEntryElement extends Components.OagChangelogEntry, HTMLStencilElement {
+    }
+    var HTMLOagChangelogEntryElement: {
+        prototype: HTMLOagChangelogEntryElement;
+        new (): HTMLOagChangelogEntryElement;
+    };
+    interface HTMLOagChangelogVersionElement extends Components.OagChangelogVersion, HTMLStencilElement {
+    }
+    var HTMLOagChangelogVersionElement: {
+        prototype: HTMLOagChangelogVersionElement;
+        new (): HTMLOagChangelogVersionElement;
+    };
     interface HTMLOagContentElement extends Components.OagContent, HTMLStencilElement {
     }
     var HTMLOagContentElement: {
@@ -142,6 +173,12 @@ declare global {
         prototype: HTMLOagImageComparisonElement;
         new (): HTMLOagImageComparisonElement;
     };
+    interface HTMLOagImprintElement extends Components.OagImprint, HTMLStencilElement {
+    }
+    var HTMLOagImprintElement: {
+        prototype: HTMLOagImprintElement;
+        new (): HTMLOagImprintElement;
+    };
     interface HTMLOagInformationElement extends Components.OagInformation, HTMLStencilElement {
     }
     var HTMLOagInformationElement: {
@@ -154,11 +191,23 @@ declare global {
         prototype: HTMLOagLightboxElement;
         new (): HTMLOagLightboxElement;
     };
+    interface HTMLOagLoadingElement extends Components.OagLoading, HTMLStencilElement {
+    }
+    var HTMLOagLoadingElement: {
+        prototype: HTMLOagLoadingElement;
+        new (): HTMLOagLoadingElement;
+    };
     interface HTMLOagMapElement extends Components.OagMap, HTMLStencilElement {
     }
     var HTMLOagMapElement: {
         prototype: HTMLOagMapElement;
         new (): HTMLOagMapElement;
+    };
+    interface HTMLOagMiscElement extends Components.OagMisc, HTMLStencilElement {
+    }
+    var HTMLOagMiscElement: {
+        prototype: HTMLOagMiscElement;
+        new (): HTMLOagMiscElement;
     };
     interface HTMLOagReferenceElement extends Components.OagReference, HTMLStencilElement {
     }
@@ -192,15 +241,20 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "oag-application": HTMLOagApplicationElement;
+        "oag-changelog-entry": HTMLOagChangelogEntryElement;
+        "oag-changelog-version": HTMLOagChangelogVersionElement;
         "oag-content": HTMLOagContentElement;
         "oag-figure": HTMLOagFigureElement;
         "oag-gallery": HTMLOagGalleryElement;
         "oag-hero": HTMLOagHeroElement;
         "oag-horizontal-gallery": HTMLOagHorizontalGalleryElement;
         "oag-image-comparison": HTMLOagImageComparisonElement;
+        "oag-imprint": HTMLOagImprintElement;
         "oag-information": HTMLOagInformationElement;
         "oag-lightbox": HTMLOagLightboxElement;
+        "oag-loading": HTMLOagLoadingElement;
         "oag-map": HTMLOagMapElement;
+        "oag-misc": HTMLOagMiscElement;
         "oag-reference": HTMLOagReferenceElement;
         "oag-screen-background-layer-item": HTMLOagScreenBackgroundLayerItemElement;
         "oag-screen-content-layer-item": HTMLOagScreenContentLayerItemElement;
@@ -214,6 +268,14 @@ declare namespace LocalJSX {
         "desktopOptimized"?: boolean;
         "loadedDelay"?: number;
         "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
+    }
+    interface OagChangelogEntry {
+        "label"?: string;
+        "tags"?: string;
+    }
+    interface OagChangelogVersion {
+        "date"?: string;
+        "version"?: string;
     }
     interface OagContent {
     }
@@ -246,15 +308,26 @@ declare namespace LocalJSX {
         "srcLeft"?: string;
         "srcRight"?: string;
     }
+    interface OagImprint {
+    }
     interface OagInformation {
     }
     interface OagLightbox {
         "caption"?: string;
     }
+    interface OagLoading {
+        "label"?: string;
+        "text"?: string;
+    }
     interface OagMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass"?: boolean;
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
+    }
+    interface OagMisc {
+        "image"?: string;
+        "label"?: string;
+        "tagline"?: string;
     }
     interface OagReference {
         "content"?: 'quelle' | 'literatur';
@@ -289,15 +362,20 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "oag-application": OagApplication;
+        "oag-changelog-entry": OagChangelogEntry;
+        "oag-changelog-version": OagChangelogVersion;
         "oag-content": OagContent;
         "oag-figure": OagFigure;
         "oag-gallery": OagGallery;
         "oag-hero": OagHero;
         "oag-horizontal-gallery": OagHorizontalGallery;
         "oag-image-comparison": OagImageComparison;
+        "oag-imprint": OagImprint;
         "oag-information": OagInformation;
         "oag-lightbox": OagLightbox;
+        "oag-loading": OagLoading;
         "oag-map": OagMap;
+        "oag-misc": OagMisc;
         "oag-reference": OagReference;
         "oag-screen-background-layer-item": OagScreenBackgroundLayerItem;
         "oag-screen-content-layer-item": OagScreenContentLayerItem;
@@ -310,15 +388,20 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "oag-application": LocalJSX.OagApplication & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
+            "oag-changelog-entry": LocalJSX.OagChangelogEntry & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
+            "oag-changelog-version": LocalJSX.OagChangelogVersion & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
             "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
             "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
             "oag-gallery": LocalJSX.OagGallery & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
             "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
             "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
             "oag-image-comparison": LocalJSX.OagImageComparison & JSXBase.HTMLAttributes<HTMLOagImageComparisonElement>;
+            "oag-imprint": LocalJSX.OagImprint & JSXBase.HTMLAttributes<HTMLOagImprintElement>;
             "oag-information": LocalJSX.OagInformation & JSXBase.HTMLAttributes<HTMLOagInformationElement>;
             "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
+            "oag-loading": LocalJSX.OagLoading & JSXBase.HTMLAttributes<HTMLOagLoadingElement>;
             "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;
+            "oag-misc": LocalJSX.OagMisc & JSXBase.HTMLAttributes<HTMLOagMiscElement>;
             "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
             "oag-screen-background-layer-item": LocalJSX.OagScreenBackgroundLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;
             "oag-screen-content-layer-item": LocalJSX.OagScreenContentLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenContentLayerItemElement>;

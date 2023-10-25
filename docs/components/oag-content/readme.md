@@ -9,11 +9,13 @@ Komponente für vor allem Textinhalte.
 
 ### Used by
 
+ - [oag-imprint](../oag-imprint)
  - [oag-information](../oag-information)
 
 ### Graph
 ```mermaid
 graph TD;
+  oag-imprint --> oag-content
   oag-information --> oag-content
   style oag-content fill:#f9f,stroke:#333,stroke-width:4px
 ```

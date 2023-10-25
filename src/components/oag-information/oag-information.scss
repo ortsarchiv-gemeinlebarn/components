@@ -3,11 +3,14 @@
 
     display: block;
     background-color: #f4f4f4;
+    position: relative;
     @include global-text;
 
     oag-content {
         padding-top: var(--padding);
         padding-bottom: var(--padding);
+        position: relative;
+        z-index: 2;
 
         .logo {
             max-width: 120px;
@@ -17,6 +20,32 @@
 
         .website-link {
             margin-top: 2em;
+        }
+    }
+
+    overflow: hidden;
+
+    .background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 60%;
+        height: 100%;
+        z-index: 1;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: 100%;
+            height: auto;
+
+            path,
+            rect {
+                fill: #eeeeee;
+            }
         }
     }
 }

@@ -23,7 +23,46 @@
 </head>
 
 <body>
+
+    <oag-loading id="loading" style="display: none;"></oag-loading>
+
     <oag-application desktop-optimized="true" desktop-only="false">
+
+        <oag-content>
+            <oag-misc
+                image="https://assets.awwwards.com/awards/avatar/306312/590048b734359.jpeg"
+                label="Jakob Vesely"
+                tagline="Verantwortliche für die archivarischen Inhalte des Ortsarchivs Gemeinlebarn und die technische Umsetzung">
+
+                <a slot="links" href="#">Website</a>
+            </oag-misc>
+        </oag-content>
+
+        <oag-content>
+            <oag-changelog-version date=" 25. Oktober 2023" version="2">
+                <oag-changelog-entry label="Jahreszahl in Übersichtskarte" tags="geändert">
+                    In der Übersichtskarte wurde die fehlerhafte Jahreszahl (1997) bei der <q>Fundort</q>-Überschrift auf 1998 geändert.
+                </oag-changelog-entry>
+                <oag-changelog-entry label="Redaktion" tags="hinzugefügt">
+                    Ergänzende Informationen zum Autor der fachlichen Inhalte, Dr. Dominik Hagmann und Jakob Vesely, der für die technische Unmsetzung verantwortlich zeichnet, wurden ergänzt.
+                </oag-changelog-entry>
+                <oag-changelog-entry label="Änderungsprotokoll" tags="hinzugefügt">
+                    Dieses Änderungsprotokoll wurde hinzugefügt, um nachträgliche Änderungen transparent und nachvollziehbar sichtbar zu machen!
+                </oag-changelog-entry>
+            </oag-changelog-version>
+            <oag-changelog-version date="22. Oktober 2023" version="1">
+                <oag-changelog-entry label="Initiale Version">
+                    Die initiale Version wurde am 22. Oktober 2023 veröffentlicht.
+                </oag-changelog-entry>
+            </oag-changelog-version>
+        </oag-content>
+
+        <oag-imprint>
+            <h2>Impressum & Datenschutz</h2>
+            <p>Diese Veranstaltung und dazugehörige Online-Information sind ein Projekt des Ortsarchivs Gemeinlebarn.</p>
+            <p><strong>Datenschutz:</strong> Es werden keinerlei personenbezogene Daten erhoben!</p>
+            <p><strong>Medieninhaber:</strong> Jakob Vesely, Neubaugasse 17, 3133 Gemeinlebarn, <a href="mailto:contact@jakob.fyi">contact@jakob.fyi</a>, <a href="https://www.jakob.fyi" target="_blank" rel="noopener noreferrer">www.jakob.fyi</a></p>
+        </oag-imprint>
 
         <oag-content>
             <oag-gallery preview="true" images='[
@@ -288,6 +327,9 @@
 
     </oag-application>
     <script type="module">
+
+        const loading = document.getElementById('loading');
+        setTimeout(() => loading.style.display = 'none', 100);
 
         // Map Fundorte
         document.getElementById("map-fundort").addEventListener("readyMap", ($event) => {
