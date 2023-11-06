@@ -103,25 +103,40 @@
 
     button,
     .button {
-        --button-padding: 1em 2em;
+        --button-size: 1em;
+        --button-padding: 0.9em 1.6em;
         --button-radius: var(--default-radius);
-        --button-background-color: #333;
-        --button-background-color-hover: #1d1d1d;
-        --button-background-color-active: #000;
-        --button-text-color: #fff;
-        --button-text-color-hover: #fff;
-        --button-text-color-active: #fff;
+        --button-gap: 0.7em;
 
-        display: inline-block;
-        padding: 1em 2em;
-        font-size: 0.9em;
+        --button-background-color: var(--default-button-background-color);
+        --button-background-color-hover: var(--default-button-background-color-hover);
+        --button-background-color-active: var(--default-button-background-color-active);
+        --button-text-color: var(--default-button-text-color);
+        --button-text-color-hover: var(--default-button-text-color-hover);
+        --button-text-color-active: var(--default-button-text-color-active);
+
+        display: inline-flex;
+        flex-direction: row;
+        gap: var(--button-gap);
+        padding: var(--button-padding);
+        font-size: var(--button-size);
         background-color: var(--button-background-color);
         color: var(--button-text-color);
-        font-weight: 600;
-        letter-spacing: 1px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        line-height: 1;
         border-radius: var(--button-radius);
         border: none;
         transition: all ease 300ms;
+
+        svg {
+            width: var(--button-size);
+            height: var(--button-size);
+        }
+
+        span {
+            line-height: 1;
+        }
 
         &:hover {
             cursor: pointer;

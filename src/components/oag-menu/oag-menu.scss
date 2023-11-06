@@ -1,0 +1,51 @@
+:host {
+    --menu-base-size: 1.1em;
+    --menu-background-color: transparent;
+    --menu-padding: var(--default-component-padding);
+    --menu-border-radius: var(--default-radius);
+    --menu-border-color: transparent;
+    --menu-border-width: 1px;
+    --menu-box-shadow: none;
+    --menu-top: none;
+    --menu-right: none;
+    --menu-bottom: var(--default-layout-padding);
+    --menu-left: var(--default-layout-padding);
+    --menu-tranform: translate(-50%, -50%);
+    --menu-gap: var(--default-component-padding);
+
+    --menu-background-color-scrolled: rgba(255, 255, 255, 0.9); //rgba(34, 34, 34, 0.9);
+    --menu-border-color-scrolled: #eee;
+    --menu-border-width-scrolled: 1px;
+    --menu-box-shadow-scrolled: 0px 5px 15px rgba(0, 0, 0, 0.2) --bottom: var(--default-layout-padding);
+
+    z-index: 900;
+    position: fixed;
+    padding: var(--menu-padding);
+    top: var(--menu-top);
+    bottom: var(--menu-bottom);
+    left: var(--menu-left);
+    right: var(--menu-right);
+    background-color: var(--menu-background-color);
+    border-radius: var(--menu-border-radius);
+    box-shadow: var(--menu-box-shadow);
+    border-color: var(--menu-border-color);
+    border-width: var(--menu-border-width);
+    border-style: solid;
+
+    display: flex;
+    flex-direction: row;
+    gap: var(--menu-gap);
+
+    transition: background-color ease 300ms;
+}
+
+:host(.scrolled) {
+    background-color: var(--menu-background-color-scrolled);
+    box-shadow: var(--menu-box-shadow-scrolled);
+    border-color: var(--menu-border-color-scrolled);
+    border-width: var(--menu-border-width-scrolled);
+}
+
+::slotted(oag-menu-item) {
+    --menu-item-base-size: var(--menu-base-size);
+}

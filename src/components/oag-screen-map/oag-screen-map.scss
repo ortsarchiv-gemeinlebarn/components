@@ -1,147 +1,203 @@
 :host {
-    --screen-background-color: rgba(0, 0, 0, 0.8); //rgba(230, 230, 230, 1);
+    --screen-background-color: #fff;
     --screen-padding: var(--default-layout-padding);
     --screen-radius: var(--default-radius);
-
-    --button-border-radius: var(--default-radius);
-    --button-background-color: #f4f4f4;
-    --button-background-color-hover: #dddddd;
-    --button-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.33);
-
-    --open-bottom: var(--default-layout-padding);
-    --open-top: none;
-    --open-left: 50%;
-    --open-right: none;
-    --open-tranform: translate(-50%, -50%);
-    --open-background-color: var(--button-background-color);
-    --open-background-color-hover: var(--button-background-color-hover);
-    --open-border-radius: var(--button-border-radius);
-    --open-box-shadow: var(--button-box-shadow);
-
-    --close-bottom: var(--default-layout-padding);
-    --close-top: none;
-    --close-left: 50%;
-    --close-right: none;
-    --close-tranform: translate(-50%, -50%);
-    --close-background-color: var(--button-background-color);
-    --close-background-color-hover: var(--button-background-color-hover);
-    --close-border-radius: var(--button-border-radius);
-    --close-box-shadow: var(--button-box-shadow);
-
-    --screen-map-background-color: #555555;
-    --screen-content-background-color: #ffffff;
     --screen-content-max-width: 400px;
+    --screen-map-background-color: #555555;
     --screen-content-padding: var(--default-layout-padding);
 
-    .open,
-    .close {
-        position: fixed;
-        margin: 0px auto;
-        z-index: 999;
+    --show-animation-duration: 500ms;
+    --hide-animation-duration: 300ms;
+    --animation-opening-position-top: none;
+    --animation-opening-position-right: none;
+    --animation-opening-position-bottom: 0;
+    --animation-opening-position-left: 0;
+
+    --close-top: none;
+    --close-left: var(--default-layout-padding);
+    --close-right: none;
+    --close-bottom: var(--default-layout-padding);
+    --close-tranform: none;
+
+    --close-background-color: var(--default-button-background-color);
+    --close-background-color-hover: var(--default-button-background-color-hover);
+    --close-background-color-active: var(--default-button-background-color-active);
+    --close-text-color: var(--default-button-text-color);
+    --close-text-color-hover: var(--default-button-text-color-hover);
+    --close-text-color-active: var(--default-button-text-color-active);
+
+    display: none;
+
+    position: fixed;
+    z-index: 1000;
+    flex-direction: column;
+    background-color: var(--screen-background-color);
+    padding: var(--screen-padding);
+
+    .container {
         display: flex;
-        flex: row;
-        align-items: center;
-        padding: 1em 1.65em;
-        gap: 1em;
-        font-size: 1.1em;
-        transition: all ease 300ms;
-
-        svg {
-            width: 2em;
-            height: 2em;
-        }
-
-        span {
-            font-weight: 500;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .open {
-        bottom: var(--open-bottom);
-        top: var(--open-top);
-        left: var(--open-left);
-        right: var(--open-right);
-        transform: var(--open-tranform);
-        background-color: var(--open-background-color);
-        border-radius: var(--open-border-radius);
-        box-shadow: var(--open-box-shadow);
-
-        &:hover {
-            background-color: var(--open-background-color-hover);
-        }
-    }
-
-    .close {
-        bottom: var(--close-bottom);
-        top: var(--close-top);
-        left: var(--close-left);
-        right: var(--close-right);
-        background-color: var(--close-background-color);
-        transform: var(--close-tranform);
-        border-radius: var(--close-border-radius);
-        box-shadow: var(--close-box-shadow);
-        display: none;
-
-        &:hover {
-            background-color: var(--close-background-color-hover);
-        }
-    }
-
-    .screen {
-        background-color: var(--screen-background-color);
-        position: fixed;
-        z-index: 998;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: var(--screen-padding);
-        display: none;
+        flex-direction: row;
+        padding: 0;
+        height: 100%;
         width: 100%;
-        box-sizing: border-box;
+        gap: 2em;
+        overflow: hidden;
+        position: relative;
 
-        &__container {
-            width: 100%;
-            height: 100%;
+        .map {
+            flex: 1;
+            background-color: var(--screen-map-background-color);
             border-radius: var(--screen-radius);
             overflow: hidden;
+
+            @extend .oag-map;
+
+            &.no-ol-touch .ol-touch .ol-control button {
+                font-size: inherit;
+            }
+        }
+
+        .content {
+            max-width: var(--screen-content-max-width);
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            overflow: auto;
+            padding-right: 0.5em;
+        }
 
-            .map {
-                background-color: var(--screen-map-background-color);
-                flex: 1;
-
-                @extend .oag-map;
-
-                &.no-ol-touch .ol-touch .ol-control button {
-                    font-size: inherit;
-                }
-            }
-
-            .content {
-                background-color: var(--screen-content-background-color);
-                width: 100%;
-                max-width: var(--screen-content-max-width);
-                overflow: auto;
-                padding: var(--screen-content-padding);
-            }
+        .close {
+            position: absolute;
+            left: var(--close-left);
+            bottom: var(--close-bottom);
+            transform: --close-tranform;
+            --menu-item-base-size: 1.1em;
+            --menu-item-background-color: var(--close-background-color);
+            --menu-item-background-color-hover: var(--close-background-color-hover);
+            --menu-item-background-color-active: var(--close-background-color-active);
+            --menu-item-text-color: var(--close-text-color);
+            --menu-item-text-color-hover: var(--close-text-color-hover);
+            --menu-item-text-color-active: var(--close-text-color-active);
         }
     }
 }
 
-:host(.is-opened) {
+:host([visible=false]) {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    animation-name: hideBackground;
+    animation-duration: var(--hide-animation-duration);
+    animation-timing-function: ease;
+    animation-delay: calc(1 * var(--hide-animation-duration));
+    animation-fill-mode: forwards;
 
-    .open {
-        display: none;
+    .container {
+        opacity: 0;
+        animation-name: fadeOut;
+        animation-duration: var(--hide-animation-duration);
+        animation-timing-function: ease;
+    }
+}
+
+:host([visible=true]) {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    animation-name: showBackground;
+    animation-duration: var(--show-animation-duration);
+    animation-timing-function: ease;
+    animation-delay: 0;
+
+    .container {
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: var(--show-animation-duration);
+        animation-timing-function: ease;
+        animation-delay: calc(1 * var(--show-animation-duration));
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes showBackground {
+    0% {
+        opacity: 1;
+        display: flex;
+        top: var(--animation-opening-position-top);
+        right: var(--animation-opening-position-right);
+        bottom: var(--animation-opening-position-bottom);
+        left: var(--animation-opening-position-left);
+        width: 0;
+        height: 0;
+
+        border-radius: 999em;
+        transform: translate(-50%, 50%);
     }
 
-    .close,
-    .screen {
-        display: flex;
+    90% {
+        top: var(--animation-opening-position-top);
+        right: var(--animation-opening-position-right);
+        bottom: var(--animation-opening-position-bottom);
+        left: var(--animation-opening-position-left);
+        width: max(300vw, 300vh);
+        height: max(300vw, 300vh);
+        transform: translate(-50%, 50%);
+    }
+
+    100% {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translate(0%, 0%);
+    }
+}
+
+@keyframes hideBackground {
+
+    0% {
+        top: var(--animation-opening-position-top);
+        right: var(--animation-opening-position-right);
+        bottom: var(--animation-opening-position-bottom);
+        left: var(--animation-opening-position-left);
+        width: max(300vw, 300vh);
+        height: max(300vw, 300vh);
+        transform: translate(-50%, 50%);
+        border-radius: 999em;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        top: var(--animation-opening-position-top);
+        right: var(--animation-opening-position-right);
+        bottom: var(--animation-opening-position-bottom);
+        left: var(--animation-opening-position-left);
+        width: 0;
+        height: 0;
+        transform: translate(-50%, 50%);
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

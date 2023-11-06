@@ -1,0 +1,172 @@
+:host {
+    --cockpit-show-animation-duration: 300ms;
+    --cockpit-hide-animation-duration: 300ms;
+    --cockpit-padding: var(--default-layout-padding);
+
+    --cockpit-animation-opening-position-top: none;
+    --cockpit-animation-opening-position-right: none;
+    --cockpit-animation-opening-position-bottom: 0;
+    --cockpit-animation-opening-position-left: 0;
+
+    @include global-buttons;
+
+    position: static;
+
+    .backdrop {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        visibility: hidden;
+    }
+
+    .modal {
+        display: none;
+
+        position: fixed;
+        z-index: 1000;
+        background-color: rgba(#fff, 1);
+        flex-direction: column;
+
+        .horizontal-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+
+            .vertical-container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+
+                .header,
+                .footer {
+                    padding: calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-vertical)) calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-horizontal));
+                }
+
+                .header {
+                    border-bottom: 1px #f4f4f4 solid;
+                }
+
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    overflow: auto;
+                    padding: var(--cockpit-padding);
+                }
+            }
+        }
+    }
+}
+
+:host([type=side]) {
+    display: block;
+    height: 100%;
+
+    .modal {
+        display: flex;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: auto;
+        max-width: 100%;
+        overflow: hidden;
+        transform: translateX(-100%);
+
+        .container {
+            display: flex;
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    &:host([visible=true]) {
+        .backdrop {
+            animation: var(--cockpit-show-animation-duration) ease forwards fadeIn;
+        }
+
+        .modal {
+            transform: translateX(-100%);
+            animation: var(--cockpit-show-animation-duration) ease forwards slideIn;
+
+            .container {
+                opacity: 0;
+                animation: var(--cockpit-show-animation-duration) ease calc(0.5 * var(--cockpit-hide-animation-duration)) forwards fadeIn;
+            }
+        }
+    }
+
+    &:host([visible=false]) {
+
+        .backdrop {
+            animation: var(--cockpit-show-animation-duration) ease forwards fadeOut;
+        }
+
+        .modal {
+            transform: translateX(0%);
+            animation-name: slideOut;
+            animation-duration: var(--cockpit-hide-animation-duration);
+            animation-timing-function: ease;
+            animation-delay: calc(0.5 * var(--cockpit-hide-animation-duration));
+            animation-fill-mode: forwards;
+
+            .container {
+                opacity: 1;
+                animation-name: fadeOut;
+                animation-duration: var(--hide-animation-duration);
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

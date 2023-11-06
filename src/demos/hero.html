@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Demo - Hero</title>
+    <script type="module" src="/build/oag-components.esm.js"></script>
+    <script nomodule src="/build/oag-components.js"></script>
+
+    <link rel="stylesheet" href="/build/oag-components.css" />
+
+    <style>
+        #hero {
+            min-height: 0;
+            --logo-display: none;
+            --component-content-direction: column-reverse;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <oag-application>
+
+        <oag-hero
+            id="hero2"
+            headline="Der Fund der Meilensteine von Gemeinlebarn"
+            caption="Die Entdeckung im Herbst 1998"
+            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg"
+            background-overlay="rgba(0, 0, 0, 0.25)"
+            big-content="true"
+            scroll-indicator-label="Oida!">
+
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/demos/screen-map.html">Screen Map</a>
+                </li>
+                <li>
+                    <a href="/demos/cockpit.html">Cockpit</a>
+                </li>
+                <li>
+                    <a href="/demos/hero.html">Hero</a>
+                </li>
+                <li>
+                    <a href="/demos/figure.html">Figure</a>
+                </li>
+                <li>
+                    <a href="/demos/content.html">Content</a>
+                </li>
+            </ul>
+
+        </oag-hero>
+
+        <oag-hero
+            id="hero"
+            headline="Der Fund der Meilensteine von Gemeinlebarn"
+            caption="Die Entdeckung im Herbst 1998"
+            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg"
+            background-overlay="rgba(0, 0, 0, 0.25)"
+            scroll-indicator="false">
+            <p>Content</p>
+        </oag-hero>
+
+    </oag-application>
+</body>
+
+</html>

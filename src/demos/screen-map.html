@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Demo - Screen Map</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
+    <script type="module" src="/build/oag-components.esm.js"></script>
+    <link rel="stylesheet" href="/build/oag-components.css" />
+</head>
+
+<body>
+    <oag-application>
+
+        <oag-menu>
+            <oag-menu-item class="open-screen-map" onClick="openScreenMap()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <path d="M313.27 124.64L198.73 51.36a32 32 0 00-29.28.35L56.51 127.49A16 16 0 0048 141.63v295.8a16 16 0 0023.49 14.14l97.82-63.79a32 32 0 0129.5-.24l111.86 73a32 32 0 0029.27-.11l115.43-75.94a16 16 0 008.63-14.2V74.57a16 16 0 00-23.49-14.14l-98 63.86a32 32 0 01-29.24.35zM328 128v336M184 48v336" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                </svg>
+                <span>Übersichtskarte öffnen</span>
+            </oag-menu-item>
+        </oag-menu>
+
+        <oag-hero
+            headline="Screen Map Demo"
+            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg"
+            background-overlay="rgba(0, 0, 0, 0.25)">
+
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/demos/screen-map.html">Screen Map</a>
+                </li>
+                <li>
+                    <a href="/demos/cockpit.html">Cockpit</a>
+                </li>
+                <li>
+                    <a href="/demos/hero.html">Hero</a>
+                </li>
+                <li>
+                    <a href="/demos/figure.html">Figure</a>
+                </li>
+                <li>
+                    <a href="/demos/content.html">Content</a>
+                </li>
+            </ul>
+
+        </oag-hero>
+
+        <oag-screen-map>
+            <h2>Meilensteinfund 1997</h2>
+            <oag-screen-content-layer-item slug="meilensteine" color="#d2232a">
+                Meilensteine
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="loecher" color="yellow">
+                Pfahllöcher
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="schotterentnahmen-1997">
+                Geöffnete Schotterentnahmen
+            </oag-screen-content-layer-item>
+
+            <h2>Römische Gegend</h2>
+            <oag-screen-content-layer-item slug="schotterentnahmen">
+                Schotterentnahmen entlang der B43 (ab 1973)
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="Römerstraße">
+                Römerstraße
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="kastelle">
+                Kastelle, Wachtürme und Zentren in der Nähe
+            </oag-screen-content-layer-item>
+
+            <h2>Hintergrundkarte</h2>
+            <oag-screen-background-layer-item slug="basemap-orthophoto" active="true">
+                Aktuelles Orthophoto
+            </oag-screen-background-layer-item>
+            <oag-screen-background-layer-item slug="osm">
+                Aktuelle Karte (Open Street Map)
+            </oag-screen-background-layer-item>
+        </oag-screen-map>
+
+    </oag-application>
+    <script type="module">
+
+        window.openScreenMap = () => document.getElementsByTagName('oag-screen-map')[0].setAttribute('visible', 'true');
+
+        document.getElementById("map-fundort").addEventListener("readyMap", ($event) => {
+            const map = $event.detail;
+
+            map.getView().setCenter([1758924.107577, 6163175.814151]);
+            map.getView().setZoom(17);
+
+            map.addLayer(new ol.layer.Vector({
+                source: new ol.source.Vector({
+                    // features: new ol.format.GeoJSON({ featureProjection: 'EPSG:3857' }).readFeatures(fundort),
+                    styles: [
+                        new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: 'blue',
+                                width: 3,
+                            }),
+                            fill: new ol.style.Fill({
+                                color: 'rgba(0, 0, 255, 1)',
+                            }),
+                        }),
+                    ]
+                })
+            }));
+        });
+
+        let screenMap;
+
+        document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) => {
+            screenMap = $event.detail;
+
+            screenMap.getView().setCenter([1758924.107577, 6163175.814151]);
+            screenMap.getView().setZoom(10);
+        });
+
+        document.querySelectorAll('oag-screen-content-layer-item').forEach(el => {
+            el.addEventListener('showLayer', event => console.log(event));
+            el.addEventListener('hideLayer', event => console.log(event));
+            el.addEventListener('highlightLayer', event => { console.log("highlightLayer!") })
+        });
+
+        document.querySelectorAll('oag-screen-background-layer-item').forEach(el => {
+            el.addEventListener('click', event => {
+
+                const slug = event.srcElement.getAttribute('slug');
+
+                document.querySelectorAll('oag-screen-background-layer-item').forEach(e => e.setAttribute('active', 'false'));
+                event.srcElement.setAttribute('active', 'true');
+
+                screenMap.getLayers().forEach(l => {
+                    console.log(l.values_.name);
+                    l.setVisible(l.values_.name.indexOf(slug) > -1)
+                });
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

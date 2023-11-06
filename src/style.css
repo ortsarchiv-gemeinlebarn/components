@@ -1,0 +1,5 @@
+#hero {
+    min-height: 0;
+    --logo-display: none;
+    --component-content-direction: column-reverse;
+}

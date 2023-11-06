@@ -45,7 +45,7 @@ $sl-caption-background: transparent;
 @include global-text;
 @include global-buttons;
 
-@media screen and (max-width: $mobileBreakpoint) {
+@media screen and (max-width: $phoneBreakpoint) {
     :root {
         --default-layout-padding: 1.5em;
     }

@@ -1,0 +1,48 @@
+:host {
+    --menu-item-base-size: 1em;
+    --menu-item-background-color: var(--default-button-background-color);
+    --menu-item-background-color-hover: var(--default-button-background-color-hover);
+    --menu-item-background-color-active: var(--default-button-background-color-active);
+    --menu-item-text-color: var(--default-button-text-color);
+    --menu-item-text-color-hover: var(--default-button-text-color-hover);
+    --menu-item-text-color-active: var(--default-button-text-color-active);
+    --menu-item-border-width: 0;
+    --menu-item-border-color: #555;
+    --menu-item-border-color-hover: #555;
+    --menu-item-border-color-active: #555;
+    --menu-item-padding: var(--default-component-padding);
+    --menu-item-border-radius: var(--default-radius);
+
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--menu-item-base-size);
+    font-weight: 500;
+    gap: 0.8em;
+    background-color: var(--menu-item-background-color);
+    color: var(--menu-item-text-color);
+    padding: var(--menu-item-padding) calc(1.35 * var(--menu-item-padding));
+    border-radius: var(--menu-item-border-radius);
+    transition: all ease 300ms;
+    border-color: var(--menu-item-border-color);
+    border-width: var(--menu-item-border-width);
+    border-style: solid;
+
+    ::slotted(svg) {
+        width: calc(1 * var(--menu-item-base-size));
+        height: calc(1 * var(--menu-item-base-size));
+    }
+}
+
+:host(:hover) {
+    cursor: pointer;
+    background-color: var(--menu-item-background-color-hover);
+    color: var(--menu-item-text-color-hover);
+    border-color: var(--menu-item-border-color-hover);
+}
+
+:host(:active) {
+    cursor: pointer;
+    background-color: var(--menu-item-background-color-active);
+    color: var(--menu-item-text-color-active);
+    border-color: var(--menu-item-border-color-active);
+}

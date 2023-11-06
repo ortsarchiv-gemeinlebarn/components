@@ -23,6 +23,14 @@ export namespace Components {
         "date": string;
         "version": string;
     }
+    interface OagCockpit {
+        "closeLabel": string;
+        "visible": boolean | 'init';
+    }
+    interface OagCockpitNavigationItem {
+        "link"?: string;
+        "number"?: string;
+    }
     interface OagContent {
     }
     interface OagFigure {
@@ -69,6 +77,11 @@ export namespace Components {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass": boolean;
     }
+    interface OagMenu {
+        "fillAfterScrolledPosition": number;
+    }
+    interface OagMenuItem {
+    }
     interface OagMisc {
         "image": string;
         "label": string;
@@ -91,9 +104,7 @@ export namespace Components {
     interface OagScreenMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass": boolean;
-        "labelClose": string;
-        "labelOpen": string;
-        "opened": boolean;
+        "visible": boolean | 'init';
     }
     interface OagTooltip {
         "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
@@ -119,7 +130,18 @@ export interface OagScreenMapCustomEvent<T> extends CustomEvent<T> {
     target: HTMLOagScreenMapElement;
 }
 declare global {
+    interface HTMLOagApplicationElementEventMap {
+        "loaded": void;
+    }
     interface HTMLOagApplicationElement extends Components.OagApplication, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLOagApplicationElementEventMap>(type: K, listener: (this: HTMLOagApplicationElement, ev: OagApplicationCustomEvent<HTMLOagApplicationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLOagApplicationElementEventMap>(type: K, listener: (this: HTMLOagApplicationElement, ev: OagApplicationCustomEvent<HTMLOagApplicationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLOagApplicationElement: {
         prototype: HTMLOagApplicationElement;
@@ -136,6 +158,18 @@ declare global {
     var HTMLOagChangelogVersionElement: {
         prototype: HTMLOagChangelogVersionElement;
         new (): HTMLOagChangelogVersionElement;
+    };
+    interface HTMLOagCockpitElement extends Components.OagCockpit, HTMLStencilElement {
+    }
+    var HTMLOagCockpitElement: {
+        prototype: HTMLOagCockpitElement;
+        new (): HTMLOagCockpitElement;
+    };
+    interface HTMLOagCockpitNavigationItemElement extends Components.OagCockpitNavigationItem, HTMLStencilElement {
+    }
+    var HTMLOagCockpitNavigationItemElement: {
+        prototype: HTMLOagCockpitNavigationItemElement;
+        new (): HTMLOagCockpitNavigationItemElement;
     };
     interface HTMLOagContentElement extends Components.OagContent, HTMLStencilElement {
     }
@@ -197,11 +231,34 @@ declare global {
         prototype: HTMLOagLoadingElement;
         new (): HTMLOagLoadingElement;
     };
+    interface HTMLOagMapElementEventMap {
+        "readyMap": Map;
+    }
     interface HTMLOagMapElement extends Components.OagMap, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLOagMapElementEventMap>(type: K, listener: (this: HTMLOagMapElement, ev: OagMapCustomEvent<HTMLOagMapElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLOagMapElementEventMap>(type: K, listener: (this: HTMLOagMapElement, ev: OagMapCustomEvent<HTMLOagMapElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLOagMapElement: {
         prototype: HTMLOagMapElement;
         new (): HTMLOagMapElement;
+    };
+    interface HTMLOagMenuElement extends Components.OagMenu, HTMLStencilElement {
+    }
+    var HTMLOagMenuElement: {
+        prototype: HTMLOagMenuElement;
+        new (): HTMLOagMenuElement;
+    };
+    interface HTMLOagMenuItemElement extends Components.OagMenuItem, HTMLStencilElement {
+    }
+    var HTMLOagMenuItemElement: {
+        prototype: HTMLOagMenuItemElement;
+        new (): HTMLOagMenuItemElement;
     };
     interface HTMLOagMiscElement extends Components.OagMisc, HTMLStencilElement {
     }
@@ -221,13 +278,37 @@ declare global {
         prototype: HTMLOagScreenBackgroundLayerItemElement;
         new (): HTMLOagScreenBackgroundLayerItemElement;
     };
+    interface HTMLOagScreenContentLayerItemElementEventMap {
+        "showLayer": string;
+        "hideLayer": string;
+        "highlightLayer": string;
+    }
     interface HTMLOagScreenContentLayerItemElement extends Components.OagScreenContentLayerItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLOagScreenContentLayerItemElementEventMap>(type: K, listener: (this: HTMLOagScreenContentLayerItemElement, ev: OagScreenContentLayerItemCustomEvent<HTMLOagScreenContentLayerItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLOagScreenContentLayerItemElementEventMap>(type: K, listener: (this: HTMLOagScreenContentLayerItemElement, ev: OagScreenContentLayerItemCustomEvent<HTMLOagScreenContentLayerItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLOagScreenContentLayerItemElement: {
         prototype: HTMLOagScreenContentLayerItemElement;
         new (): HTMLOagScreenContentLayerItemElement;
     };
+    interface HTMLOagScreenMapElementEventMap {
+        "readyMap": Map;
+    }
     interface HTMLOagScreenMapElement extends Components.OagScreenMap, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLOagScreenMapElementEventMap>(type: K, listener: (this: HTMLOagScreenMapElement, ev: OagScreenMapCustomEvent<HTMLOagScreenMapElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLOagScreenMapElementEventMap>(type: K, listener: (this: HTMLOagScreenMapElement, ev: OagScreenMapCustomEvent<HTMLOagScreenMapElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLOagScreenMapElement: {
         prototype: HTMLOagScreenMapElement;
@@ -243,6 +324,8 @@ declare global {
         "oag-application": HTMLOagApplicationElement;
         "oag-changelog-entry": HTMLOagChangelogEntryElement;
         "oag-changelog-version": HTMLOagChangelogVersionElement;
+        "oag-cockpit": HTMLOagCockpitElement;
+        "oag-cockpit-navigation-item": HTMLOagCockpitNavigationItemElement;
         "oag-content": HTMLOagContentElement;
         "oag-figure": HTMLOagFigureElement;
         "oag-gallery": HTMLOagGalleryElement;
@@ -254,6 +337,8 @@ declare global {
         "oag-lightbox": HTMLOagLightboxElement;
         "oag-loading": HTMLOagLoadingElement;
         "oag-map": HTMLOagMapElement;
+        "oag-menu": HTMLOagMenuElement;
+        "oag-menu-item": HTMLOagMenuItemElement;
         "oag-misc": HTMLOagMiscElement;
         "oag-reference": HTMLOagReferenceElement;
         "oag-screen-background-layer-item": HTMLOagScreenBackgroundLayerItemElement;
@@ -276,6 +361,14 @@ declare namespace LocalJSX {
     interface OagChangelogVersion {
         "date"?: string;
         "version"?: string;
+    }
+    interface OagCockpit {
+        "closeLabel"?: string;
+        "visible"?: boolean | 'init';
+    }
+    interface OagCockpitNavigationItem {
+        "link"?: string;
+        "number"?: string;
     }
     interface OagContent {
     }
@@ -324,6 +417,11 @@ declare namespace LocalJSX {
         "disableTouchClass"?: boolean;
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
     }
+    interface OagMenu {
+        "fillAfterScrolledPosition"?: number;
+    }
+    interface OagMenuItem {
+    }
     interface OagMisc {
         "image"?: string;
         "label"?: string;
@@ -349,10 +447,8 @@ declare namespace LocalJSX {
     interface OagScreenMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass"?: boolean;
-        "labelClose"?: string;
-        "labelOpen"?: string;
         "onReadyMap"?: (event: OagScreenMapCustomEvent<Map>) => void;
-        "opened"?: boolean;
+        "visible"?: boolean | 'init';
     }
     interface OagTooltip {
         "icon"?: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
@@ -364,6 +460,8 @@ declare namespace LocalJSX {
         "oag-application": OagApplication;
         "oag-changelog-entry": OagChangelogEntry;
         "oag-changelog-version": OagChangelogVersion;
+        "oag-cockpit": OagCockpit;
+        "oag-cockpit-navigation-item": OagCockpitNavigationItem;
         "oag-content": OagContent;
         "oag-figure": OagFigure;
         "oag-gallery": OagGallery;
@@ -375,6 +473,8 @@ declare namespace LocalJSX {
         "oag-lightbox": OagLightbox;
         "oag-loading": OagLoading;
         "oag-map": OagMap;
+        "oag-menu": OagMenu;
+        "oag-menu-item": OagMenuItem;
         "oag-misc": OagMisc;
         "oag-reference": OagReference;
         "oag-screen-background-layer-item": OagScreenBackgroundLayerItem;
@@ -390,6 +490,8 @@ declare module "@stencil/core" {
             "oag-application": LocalJSX.OagApplication & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
             "oag-changelog-entry": LocalJSX.OagChangelogEntry & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
             "oag-changelog-version": LocalJSX.OagChangelogVersion & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
+            "oag-cockpit": LocalJSX.OagCockpit & JSXBase.HTMLAttributes<HTMLOagCockpitElement>;
+            "oag-cockpit-navigation-item": LocalJSX.OagCockpitNavigationItem & JSXBase.HTMLAttributes<HTMLOagCockpitNavigationItemElement>;
             "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
             "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
             "oag-gallery": LocalJSX.OagGallery & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
@@ -401,6 +503,8 @@ declare module "@stencil/core" {
             "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
             "oag-loading": LocalJSX.OagLoading & JSXBase.HTMLAttributes<HTMLOagLoadingElement>;
             "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;
+            "oag-menu": LocalJSX.OagMenu & JSXBase.HTMLAttributes<HTMLOagMenuElement>;
+            "oag-menu-item": LocalJSX.OagMenuItem & JSXBase.HTMLAttributes<HTMLOagMenuItemElement>;
             "oag-misc": LocalJSX.OagMisc & JSXBase.HTMLAttributes<HTMLOagMiscElement>;
             "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
             "oag-screen-background-layer-item": LocalJSX.OagScreenBackgroundLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;

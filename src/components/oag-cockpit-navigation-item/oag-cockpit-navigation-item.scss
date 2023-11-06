@@ -1,0 +1,57 @@
+:host {
+    --cockpit-navigation-item-size: 1em;
+    --cockpit-navigation-item-text-color: #333333;
+    --cockpit-navigation-item-text-color-hover: #000000;
+    --cockpit-navigation-item-background-color: transparent;
+    --cockpit-navigation-item-background-color-hover: #f4f4f4;
+
+    --cockpit-navigation-item-padding-top: var(--default-cockpit-item-padding-vertical);
+    --cockpit-navigation-item-padding-bottom: var(--default-cockpit-item-padding-vertical);
+    --cockpit-navigation-item-padding-left: var(--default-cockpit-item-padding-horizontal);
+    --cockpit-navigation-item-padding-right: var(--default-cockpit-item-padding-horizontal);
+    --cockpit-navigation-item-margin-top: 0em;
+    --cockpit-navigation-item-margin-bottom: 0.1em;
+    --cockpit-navigation-item-radius: var(--default-radius);
+
+    --cockpit-navigation-item-gap: 20px;
+    --cockpit-navigation-item-number-width: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--cockpit-navigation-item-gap);
+    font-size: var(--cockpit-navigation-item-size);
+    color: var(--cockpit-navigation-item-text-color);
+    padding-top: var(--cockpit-navigation-item-padding-top);
+    padding-right: var(--cockpit-navigation-item-padding-right);
+    padding-bottom: var(--cockpit-navigation-item-padding-bottom);
+    padding-left: var(--cockpit-navigation-item-padding-left);
+    margin-top: var(--cockpit-navigation-item-margin-top);
+    margin-bottom: var(--cockpit-navigation-item-margin-bottom);
+    border-radius: var(--cockpit-navigation-item-radius);
+    background-color: var(--cockpit-navigation-item-background-color);
+
+    .number {
+        width: var(--cockpit-navigation-item-number-width);
+        font-weight: 300;
+        font-size: 0.8em;
+        text-align: right;
+        color: #ccc;
+    }
+
+    .label {
+        font-size: inherit;
+        font-weight: inherit;
+        flex: 1;
+    }
+}
+
+:host(.clickable) {
+    transition: all ease 300ms;
+}
+
+:host(.clickable:hover) {
+    cursor: pointer;
+    color: var(--cockpit-navigation-item-text-color-hover);
+    background-color: var(--cockpit-navigation-item-background-color-hover);
+}

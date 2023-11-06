@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Demo - Cockpit</title>
+    <script type="module" src="/build/oag-components.esm.js"></script>
+    <link rel="stylesheet" href="/build/oag-components.css" />
+
+    <style>
+        .open-cockpit {
+            --menu-item-background-color: #fff;
+            --menu-item-background-color-hover: #eee;
+            --menu-item-background-color-active: #ddd;
+            --menu-item-text-color: #333;
+            --menu-item-text-color-hover: #111;
+            --menu-item-text-color-active: #000;
+        }
+
+        oag-cockpit-navigation-item.level-1 {
+            --cockpit-navigation-item-size: 0.9rem;
+            --cockpit-navigation-item-margin-top: 2em;
+            --cockpit-navigation-item-text-color: #999;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        oag-cockpit-navigation-item.level-2 {
+            --cockpit-navigation-item-size: 1.35em;
+        }
+
+        h1[slot="head"] {
+            margin: 0;
+        }
+
+        nav[slot=navigation] {
+            display: flex;
+            flex-direction: row;
+            gap: 2em;
+        }
+
+        nav[slot=navigation] .navigation-column {
+            width: 50%;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            nav[slot=navigation] {
+                flex-wrap: wrap;
+            }
+
+            nav[slot=navigation] .navigation-column {
+                width: 100%;
+            }
+        }
+
+        .cockpit-image {
+            width: 100px;
+            height: 100%;
+            background-image: url(https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <oag-application>
+
+        <oag-hero
+            id="hero"
+            headline="Cockpit Sample Page"
+            caption="Die Entdeckung im Herbst 1998"
+            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg"
+            background-overlay="rgba(0, 0, 0, 0.25)">
+
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/demos/screen-map.html">Screen Map</a>
+                </li>
+                <li>
+                    <a href="/demos/cockpit.html">Cockpit</a>
+                </li>
+                <li>
+                    <a href="/demos/hero.html">Hero</a>
+                </li>
+                <li>
+                    <a href="/demos/figure.html">Figure</a>
+                </li>
+                <li>
+                    <a href="/demos/content.html">Content</a>
+                </li>
+            </ul>
+        </oag-hero>
+
+        <oag-menu>
+            <oag-menu-item class="open-cockpit" onClick="openCockpit()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352" />
+                </svg>
+                <span>Menü</span>
+            </oag-menu-item>
+        </oag-menu>
+
+        <oag-cockpit type="side">
+            <h1 slot="head">Menü</h1>
+            <nav slot="navigation">
+                <div class="navigation-column">
+                    <oag-cockpit-navigation-item class="level-1">Kontext</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2" link="#context-roemer">Die Römer in unserer Region</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2" link="#context-besiedelung">Besiedelung</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2" link="#context-strassen">Straßen</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2" link="#context-gemeinlebarn">Gemeinlebarn</oag-cockpit-navigation-item>
+
+                    <oag-cockpit-navigation-item class="level-1">Die Entdeckung der Meilensteine</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Entdeckung selbst nochmal neu entdecken</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Bildergalerie der Freilegung</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Video des Abtransports von Meilenstein Nr. 2</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Präsentation in Nussdorf</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Aufstellung der Originale</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Inschriften</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Das Replikat in Gemeinlebarn</oag-cockpit-navigation-item>
+                </div>
+                <div class="navigation-column">
+                    <oag-cockpit-navigation-item class="level-1">Anhang</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Dieses Projekt</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Weiterführende Informationen zu lokalen Initiativen</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Onlineressourcen</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Quellen</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Literatur</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Über das Ortsarchiv Gemeinlebarn</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Änderungsprotokoll</oag-cockpit-navigation-item>
+                    <oag-cockpit-navigation-item class="level-2">Impressum & Datenschutz</oag-cockpit-navigation-item>
+                </div>
+            </nav>
+
+        </oag-cockpit>
+
+    </oag-application>
+
+    <script type="module">
+
+        window.openCockpit = () => document.getElementsByTagName('oag-cockpit')[0].setAttribute('visible', 'true');
+
+    </script>
+
+</body>
+
+</html>

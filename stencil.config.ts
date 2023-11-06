@@ -32,6 +32,9 @@ export const config: Config = {
                     src: 'fonts/*',
                     dest: 'fonts',
                     warn: true,
+                },
+                {
+                    src: 'demos'
                 }
             ]
         },

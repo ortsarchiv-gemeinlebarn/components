@@ -1,4 +1,5 @@
-$mobileBreakpoint: 600px;
+$phoneBreakpoint: 600px;
+$tabletBreakpoint: 1024px;
 
 :root {
     --default-layout-inner-max-width: 800px;
@@ -14,5 +15,16 @@ $mobileBreakpoint: 600px;
     --default-text-align: justify;
     --default-text-size: 1em;
 
-    --mobile-breakpoint: 600px;
+    --phone-breakpoint: $phoneBreakpoint;
+    --tablet-breakpoint: $tabletBreakpoint;
+
+    --default-button-background-color: #176B87;
+    --default-button-background-color-hover: #192655;
+    --default-button-background-color-active: #04364A;
+    --default-button-text-color: #fff;
+    --default-button-text-color-hover: #fff;
+    --default-button-text-color-active: #fff;
+
+    --default-cockpit-item-padding-vertical: 8px;
+    --default-cockpit-item-padding-horizontal: 14px;
 }
