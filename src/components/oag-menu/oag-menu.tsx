@@ -12,10 +12,10 @@ export class OagMenu {
 
     componentWillLoad() {
         this.scrolled = this.checkScroll();
-        document.body.addEventListener("scroll", () => this.scrolled = this.checkScroll());
+        window.addEventListener("scroll", () => this.scrolled = this.checkScroll());
     }
 
-    private checkScroll = () => document.body.scrollTop > this.fillAfterScrolledPosition;
+    private checkScroll = () => window.scrollY > this.fillAfterScrolledPosition;
 
     render() {
         return (
