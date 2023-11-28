@@ -1,4 +1,5 @@
 import { Component, Host, Prop, Element, h } from '@stencil/core';
+import { scrollToElement } from '../../utils/utils';
 
 @Component({
     tag: 'oag-cockpit-navigation-item',
@@ -13,9 +14,10 @@ export class OagCockpitNavigationItem {
     @Element() private element: HTMLElement;
 
     openLinkAndCloseCockpit = () => {
+        console.log(new Date());
         if (this.link) {
             this.element.closest('oag-cockpit').setAttribute('visible', 'false');
-            window.location.hash = this.link;
+            scrollToElement(this.link);
         }
     }
 
@@ -32,5 +34,4 @@ export class OagCockpitNavigationItem {
             </Host>
         );
     }
-
 }

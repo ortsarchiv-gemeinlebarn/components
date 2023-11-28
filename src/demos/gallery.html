@@ -1,5 +1,78 @@
-<oag-content>
-    <oag-gallery preview="true" images='[
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Demo - Gallery</title>
+
+    <script type="module" src="/build/oag-components.esm.js"></script>
+    <script nomodule src="/build/oag-components.js"></script>
+
+    <link rel="stylesheet" href="/build/oag-components.css" />
+
+    <style>
+        oag-horizontal-content {
+            height: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <oag-application>
+
+        <oag-content>
+            <h1>Gallery Demo</h1>
+
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/demos/screen-map.html">Screen Map</a>
+                </li>
+                <li>
+                    <a href="/demos/cockpit.html">Cockpit</a>
+                </li>
+                <li>
+                    <a href="/demos/hero.html">Hero</a>
+                </li>
+                <li>
+                    <a href="/demos/figure.html">Figure</a>
+                </li>
+                <li>
+                    <a href="/demos/content.html">Content</a>
+                </li>
+            </ul>
+        </oag-content>
+
+
+        <oag-horizontal-content max-width="full">
+            <oag-figure caption="Oida!">
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-001-vsc.jpeg" alt="">
+            </oag-figure>
+            <oag-figure>
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-002-vsc.jpeg" alt="">
+            </oag-figure>
+            <oag-figure caption="Oida!">
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-003-gat.jpeg" alt="">
+            </oag-figure>
+        </oag-horizontal-content>
+
+
+        <oag-horizontal-gallery>
+            <oag-figure caption="Oida!">
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-001-vsc.jpeg" alt="">
+            </oag-figure>
+            <oag-figure>
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-001-vsc.jpeg" alt="">
+            </oag-figure>
+        </oag-horizontal-gallery>
+
+        <oag-content>
+            <oag-gallery preview="true" images='[
     { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/01.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
     { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/02.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
     { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/03.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
@@ -15,10 +88,9 @@
     { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/13.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
     { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/14.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" }
 ]'></oag-gallery>
-</oag-content>
+        </oag-content>
 
-<oag-horizontal-gallery images='[
-{ "src": "https://images.unsplash.com/photo-1687983545675-4755ef89ba79?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MDcwNjk0OQ&ixlib=rb-4.0.3&q=80&w=1440", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
-{ "src": "https://images.unsplash.com/photo-1689590903552-d1034d40ff76?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MDcwNjk2MQ&ixlib=rb-4.0.3&q=80&w=1440", "caption": "Bild 2", "reference": "oag-a-ufg-1-1-1" },
-{ "src": "https://images.unsplash.com/photo-1688079393199-ed1bfa217f60?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MDcwNjk2NA&ixlib=rb-4.0.3&q=80&w=1440", "caption": "Bild 3", "reference": "oag-a-ufg-1-1-1" }
-]'></oag-horizontal-gallery>
+    </oag-application>
+</body>
+
+</html>
