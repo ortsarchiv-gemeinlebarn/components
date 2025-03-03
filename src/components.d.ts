@@ -87,6 +87,15 @@ export namespace Components {
         "label": string;
         "tagline": string;
     }
+    interface OagProject {
+        "backgroundImage": string;
+        "backgroundOverlay": string;
+        "backgroundPosition": string;
+        "href": string;
+        "hrefLabel": string;
+        "subtitle": string;
+        "title": string;
+    }
     interface OagReference {
         "content": 'quelle' | 'literatur';
         "label": string;
@@ -266,6 +275,12 @@ declare global {
         prototype: HTMLOagMiscElement;
         new (): HTMLOagMiscElement;
     };
+    interface HTMLOagProjectElement extends Components.OagProject, HTMLStencilElement {
+    }
+    var HTMLOagProjectElement: {
+        prototype: HTMLOagProjectElement;
+        new (): HTMLOagProjectElement;
+    };
     interface HTMLOagReferenceElement extends Components.OagReference, HTMLStencilElement {
     }
     var HTMLOagReferenceElement: {
@@ -340,6 +355,7 @@ declare global {
         "oag-menu": HTMLOagMenuElement;
         "oag-menu-item": HTMLOagMenuItemElement;
         "oag-misc": HTMLOagMiscElement;
+        "oag-project": HTMLOagProjectElement;
         "oag-reference": HTMLOagReferenceElement;
         "oag-screen-background-layer-item": HTMLOagScreenBackgroundLayerItemElement;
         "oag-screen-content-layer-item": HTMLOagScreenContentLayerItemElement;
@@ -427,6 +443,15 @@ declare namespace LocalJSX {
         "label"?: string;
         "tagline"?: string;
     }
+    interface OagProject {
+        "backgroundImage"?: string;
+        "backgroundOverlay"?: string;
+        "backgroundPosition"?: string;
+        "href"?: string;
+        "hrefLabel"?: string;
+        "subtitle"?: string;
+        "title"?: string;
+    }
     interface OagReference {
         "content"?: 'quelle' | 'literatur';
         "label"?: string;
@@ -476,6 +501,7 @@ declare namespace LocalJSX {
         "oag-menu": OagMenu;
         "oag-menu-item": OagMenuItem;
         "oag-misc": OagMisc;
+        "oag-project": OagProject;
         "oag-reference": OagReference;
         "oag-screen-background-layer-item": OagScreenBackgroundLayerItem;
         "oag-screen-content-layer-item": OagScreenContentLayerItem;
@@ -506,6 +532,7 @@ declare module "@stencil/core" {
             "oag-menu": LocalJSX.OagMenu & JSXBase.HTMLAttributes<HTMLOagMenuElement>;
             "oag-menu-item": LocalJSX.OagMenuItem & JSXBase.HTMLAttributes<HTMLOagMenuItemElement>;
             "oag-misc": LocalJSX.OagMisc & JSXBase.HTMLAttributes<HTMLOagMiscElement>;
+            "oag-project": LocalJSX.OagProject & JSXBase.HTMLAttributes<HTMLOagProjectElement>;
             "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
             "oag-screen-background-layer-item": LocalJSX.OagScreenBackgroundLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;
             "oag-screen-content-layer-item": LocalJSX.OagScreenContentLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenContentLayerItemElement>;

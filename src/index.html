@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Demo - Home</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Demo - Home</title>
 
-    <script type="module" src="/build/oag-components.esm.js"></script>
-    <script nomodule src="/build/oag-components.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+        <script type="module" src="/build/oag-components.esm.js"></script>
+        <script nomodule src="/build/oag-components.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
 
-    <link rel="stylesheet" href="/build/oag-components.css" />
+        <link rel="stylesheet" href="/build/oag-components.css" />
 
-    <style>
-        #hero {
-            min-height: 0;
-            --logo-display: none;
-            --component-content-direction: column-reverse;
-        }
-    </style>
+        <style>
+            #hero {
+                min-height: 0;
+                --logo-display: none;
+                --component-content-direction: column-reverse;
+            }
+        </style>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <oag-loading id="loading" style="display: none;"></oag-loading>
+        <oag-loading id="loading" style="display: none;"></oag-loading>
 
-    <oag-application desktop-optimized="true" desktop-only="false">
+        <oag-application desktop-optimized="true" desktop-only="false">
 
-        <oag-content>
-            <h1>Demo</h1>
-            <h2>Available Demos</h2>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/demos/screen-map.html">Screen Map</a>
-                </li>
-                <li>
-                    <a href="/demos/cockpit.html">Cockpit</a>
-                </li>
-                <li>
-                    <a href="/demos/hero.html">Hero</a>
-                </li>
-                <li>
-                    <a href="/demos/figure.html">Figure</a>
-                </li>
-                <li>
-                    <a href="/demos/content.html">Content</a>
-                </li>
-            </ul>
-        </oag-content>
+            <oag-content>
+                <h1>Demo</h1>
+                <h2>Available Demos</h2>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/demos/screen-map.html">Screen Map</a>
+                    </li>
+                    <li>
+                        <a href="/demos/cockpit.html">Cockpit</a>
+                    </li>
+                    <li>
+                        <a href="/demos/hero.html">Hero</a>
+                    </li>
+                    <li>
+                        <a href="/demos/figure.html">Figure</a>
+                    </li>
+                    <li>
+                        <a href="/demos/content.html">Content</a>
+                    </li>
+                    <li>
+                        <a href="/demos/project.html">Project</a>
+                    </li>
+                </ul>
+            </oag-content>
 
-        <!-- <oag-menu>
+            <!-- <oag-menu>
             <oag-menu-item onClick="openDemo('hero')">Hero</oag-menu-item>
             <oag-menu-item onClick="openDemo('menu')">Menü & Screen Map</oag-menu-item>
             <oag-menu-item onClick="openDemo('figure')">Figure</oag-menu-item>
@@ -66,7 +69,7 @@
             </oag-menu-item>
         </oag-menu> -->
 
-    </oag-application>
-</body>
+        </oag-application>
+    </body>
 
 </html>
