@@ -1,0 +1,125 @@
+:host([href]) {
+    .container:hover {
+        .open {
+            cursor: pointer;
+            opacity: 1;
+        }
+    }
+}
+
+:host {
+    --background-color: #f4f4f4;
+    --border-radius: var(--default-radius);
+    --padding: var(--default-layout-padding);
+    --title-color: #ffffff;
+    --subtitle-color: #dddddd;
+    --icon-color: #ffffff;
+    --icon-size: 4em;
+    --direction: column;
+    --align: start;
+    --justify: space-between;
+
+    display: block;
+    padding: 0;
+    gap: 2em;
+
+    .container {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-size: cover;
+        background-position: center center;
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-sizing: border-box;
+        transition: all ease 300ms;
+        position: relative;
+
+        .open {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--title-color);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: all ease 300ms;
+            z-index: 2;
+            gap: 1rem;
+
+            svg {
+                fill: var(--title-color);
+                width: 40px;
+                height: 40px;
+            }
+
+            span {
+                font-size: 2rem;
+                font-weight: 500;
+                margin: 0;
+            }
+        }
+
+        .overlay {
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            flex-direction: var(--direction);
+            justify-content: var(--justify);
+            align-items: var(--align);
+            gap: var(--padding);
+            padding: var(--padding);
+            box-sizing: border-box;
+            position: relative;
+
+            .icon {
+                width: var(--icon-size);
+                height: var(--icon-size);
+                fill: var(--title-color);
+                align-self: end;
+                transition: all ease 300ms;
+            }
+
+            .content {
+                .title {
+                    margin: 0;
+                    font-weight: 600;
+                    font-size: 1.5em;
+                    color: var(--title-color);
+                }
+
+                .subtitle {
+                    margin: 0;
+                    font-size: 1.15em;
+                    color: var(--subtitle-color);
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (max-width: $phoneBreakpoint) {
+//     :host {
+//         flex-direction: column;
+
+//         .content {
+//             .label,
+//             .tagline {
+//                 text-align: center;
+//             }
+
+//             slot[name='links'] {
+//                 justify-content: center;
+//             }
+//         }
+//     }
+// }

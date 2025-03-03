@@ -7,7 +7,7 @@ export const config: Config = {
     outputTargets: [
         {
             type: 'dist',
-            esmLoaderPath: '../loader'
+            esmLoaderPath: '../loader',
         },
         {
             type: 'dist-custom-elements',
@@ -17,12 +17,12 @@ export const config: Config = {
                     src: 'fonts/*',
                     dest: 'dist/fonts',
                     warn: true,
-                }
-            ]
+                },
+            ],
         },
         {
             type: 'docs-readme',
-            dir: 'docs'
+            dir: 'docs',
         },
         {
             type: 'www',
@@ -34,22 +34,14 @@ export const config: Config = {
                     warn: true,
                 },
                 {
-                    src: 'demos'
-                }
-            ]
+                    src: 'demos',
+                },
+            ],
         },
     ],
-    testing: {
-        browserHeadless: "new",
-    },
     plugins: [
         sass({
-            injectGlobalPaths: [
-                'src/global/variables.scss',
-                'src/global/fonts.scss',
-                'src/global/mixins.scss',
-                'src/global/maps.scss'
-            ]
-        })
-    ]
+            injectGlobalPaths: ['src/global/variables.scss', 'src/global/fonts.scss', 'src/global/mixins.scss', 'src/global/maps.scss'],
+        }),
+    ],
 };
