@@ -12,8 +12,20 @@ export { Map } from "ol";
 export namespace Components {
     interface OagApplication {
         "desktopOnly": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "desktop-only"?: boolean;
         "desktopOptimized": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "desktop-optimized"?: boolean;
         "loadedDelay": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "loaded-delay"?: number;
     }
     interface OagChangelogEntry {
         "label": string;
@@ -25,6 +37,10 @@ export namespace Components {
     }
     interface OagCockpit {
         "closeLabel": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "close-label"?: string;
         "visible": boolean | 'init';
     }
     interface OagCockpitNavigationItem {
@@ -36,6 +52,10 @@ export namespace Components {
     interface OagFigure {
         "caption": string;
         "maxWidth": 'inner' | 'outer';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-width"?: 'inner' | 'outer';
         "reference": string;
     }
     interface OagGallery {
@@ -44,23 +64,67 @@ export namespace Components {
     }
     interface OagHero {
         "backgroundImage": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-image"?: string;
         "backgroundOverlay": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-overlay"?: string;
         "caption": string;
         "headline": string;
         "scrollIndicator": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "scroll-indicator"?: boolean;
         "scrollIndicatorLabel": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "scroll-indicator-label"?: string;
     }
     interface OagHorizontalGallery {
         "images": Array<GalleryItem> | string;
     }
     interface OagImageComparison {
         "labelLeft": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-left"?: string;
         "labelRight": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-right"?: string;
         "sliderIconPosition"?: any;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-icon-position"?: any;
         "sliderPosition": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-position"?: number;
         "sliderWidth": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-width"?: number;
         "srcLeft": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "src-left"?: string;
         "srcRight": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "src-right"?: string;
     }
     interface OagImprint {
     }
@@ -75,10 +139,22 @@ export namespace Components {
     }
     interface OagMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-layer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-touch-class"?: boolean;
     }
     interface OagMenu {
         "fillAfterScrolledPosition": number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "fill-after-scrolled-position"?: number;
     }
     interface OagMenuItem {
     }
@@ -91,6 +167,10 @@ export namespace Components {
         "content": 'quelle' | 'literatur';
         "label": string;
         "referenceCode": string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "reference-code"?: string;
     }
     interface OagScreenBackgroundLayerItem {
         "active": boolean;
@@ -103,12 +183,24 @@ export namespace Components {
     }
     interface OagScreenMap {
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-layer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-touch-class"?: boolean;
         "visible": boolean | 'init';
     }
     interface OagTooltip {
         "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
         "initialShow": boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "initial-show"?: boolean;
         "x": string;
         "y": string;
     }
@@ -350,8 +442,20 @@ declare global {
 declare namespace LocalJSX {
     interface OagApplication {
         "desktopOnly"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "desktop-only"?: boolean;
         "desktopOptimized"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "desktop-optimized"?: boolean;
         "loadedDelay"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "loaded-delay"?: number;
         "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
     }
     interface OagChangelogEntry {
@@ -364,6 +468,10 @@ declare namespace LocalJSX {
     }
     interface OagCockpit {
         "closeLabel"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "close-label"?: string;
         "visible"?: boolean | 'init';
     }
     interface OagCockpitNavigationItem {
@@ -375,6 +483,10 @@ declare namespace LocalJSX {
     interface OagFigure {
         "caption"?: string;
         "maxWidth"?: 'inner' | 'outer';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "max-width"?: 'inner' | 'outer';
         "reference"?: string;
     }
     interface OagGallery {
@@ -383,23 +495,67 @@ declare namespace LocalJSX {
     }
     interface OagHero {
         "backgroundImage"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-image"?: string;
         "backgroundOverlay"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-overlay"?: string;
         "caption"?: string;
         "headline"?: string;
         "scrollIndicator"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "scroll-indicator"?: boolean;
         "scrollIndicatorLabel"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "scroll-indicator-label"?: string;
     }
     interface OagHorizontalGallery {
         "images"?: Array<GalleryItem> | string;
     }
     interface OagImageComparison {
         "labelLeft"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-left"?: string;
         "labelRight"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "label-right"?: string;
         "sliderIconPosition"?: any;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-icon-position"?: any;
         "sliderPosition"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-position"?: number;
         "sliderWidth"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "slider-width"?: number;
         "srcLeft"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "src-left"?: string;
         "srcRight"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "src-right"?: string;
     }
     interface OagImprint {
     }
@@ -414,11 +570,23 @@ declare namespace LocalJSX {
     }
     interface OagMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-layer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-touch-class"?: boolean;
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
     }
     interface OagMenu {
         "fillAfterScrolledPosition"?: number;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "fill-after-scrolled-position"?: number;
     }
     interface OagMenuItem {
     }
@@ -431,6 +599,10 @@ declare namespace LocalJSX {
         "content"?: 'quelle' | 'literatur';
         "label"?: string;
         "referenceCode"?: string;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "reference-code"?: string;
     }
     interface OagScreenBackgroundLayerItem {
         "active"?: boolean;
@@ -446,13 +618,25 @@ declare namespace LocalJSX {
     }
     interface OagScreenMap {
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "background-layer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
         "disableTouchClass"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "disable-touch-class"?: boolean;
         "onReadyMap"?: (event: OagScreenMapCustomEvent<Map>) => void;
         "visible"?: boolean | 'init';
     }
     interface OagTooltip {
         "icon"?: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
         "initialShow"?: boolean;
+        /**
+         * @deprecated use camelCase instead. Support for dash-casing will be removed in Stencil v5.
+         */
+        "initial-show"?: boolean;
         "x"?: string;
         "y"?: string;
     }
