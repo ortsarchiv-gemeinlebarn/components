@@ -46,6 +46,13 @@ export namespace Components {
          */
         "version": string;
     }
+    interface OagChapterAudio {
+        /**
+          * @default []
+         */
+        "chapters": Chapter[];
+        "src": string;
+    }
     interface OagCockpit {
         /**
           * @default 'Menü schließen'
@@ -317,6 +324,12 @@ declare global {
         prototype: HTMLOagChangelogVersionElement;
         new (): HTMLOagChangelogVersionElement;
     };
+    interface HTMLOagChapterAudioElement extends Components.OagChapterAudio, HTMLStencilElement {
+    }
+    var HTMLOagChapterAudioElement: {
+        prototype: HTMLOagChapterAudioElement;
+        new (): HTMLOagChapterAudioElement;
+    };
     interface HTMLOagCockpitElement extends Components.OagCockpit, HTMLStencilElement {
     }
     var HTMLOagCockpitElement: {
@@ -489,6 +502,7 @@ declare global {
         "oag-audio": HTMLOagAudioElement;
         "oag-changelog-entry": HTMLOagChangelogEntryElement;
         "oag-changelog-version": HTMLOagChangelogVersionElement;
+        "oag-chapter-audio": HTMLOagChapterAudioElement;
         "oag-cockpit": HTMLOagCockpitElement;
         "oag-cockpit-navigation-item": HTMLOagCockpitNavigationItemElement;
         "oag-content": HTMLOagContentElement;
@@ -550,6 +564,13 @@ declare namespace LocalJSX {
           * @default ''
          */
         "version"?: string;
+    }
+    interface OagChapterAudio {
+        /**
+          * @default []
+         */
+        "chapters"?: Chapter[];
+        "src"?: string;
     }
     interface OagCockpit {
         /**
@@ -779,6 +800,7 @@ declare namespace LocalJSX {
         "oag-audio": OagAudio;
         "oag-changelog-entry": OagChangelogEntry;
         "oag-changelog-version": OagChangelogVersion;
+        "oag-chapter-audio": OagChapterAudio;
         "oag-cockpit": OagCockpit;
         "oag-cockpit-navigation-item": OagCockpitNavigationItem;
         "oag-content": OagContent;
@@ -811,6 +833,7 @@ declare module "@stencil/core" {
             "oag-audio": LocalJSX.OagAudio & JSXBase.HTMLAttributes<HTMLOagAudioElement>;
             "oag-changelog-entry": LocalJSX.OagChangelogEntry & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
             "oag-changelog-version": LocalJSX.OagChangelogVersion & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
+            "oag-chapter-audio": LocalJSX.OagChapterAudio & JSXBase.HTMLAttributes<HTMLOagChapterAudioElement>;
             "oag-cockpit": LocalJSX.OagCockpit & JSXBase.HTMLAttributes<HTMLOagCockpitElement>;
             "oag-cockpit-navigation-item": LocalJSX.OagCockpitNavigationItem & JSXBase.HTMLAttributes<HTMLOagCockpitNavigationItemElement>;
             "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
