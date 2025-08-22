@@ -25,6 +25,14 @@ export namespace Components {
         "loadedDelay": number;
     }
     interface OagAudio {
+        /**
+          * @default ''
+         */
+        "headline": string;
+        /**
+          * @default ''
+         */
+        "source": string;
     }
     interface OagChangelogEntry {
         /**
@@ -530,6 +538,14 @@ declare namespace LocalJSX {
         "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
     }
     interface OagAudio {
+        /**
+          * @default ''
+         */
+        "headline"?: string;
+        /**
+          * @default ''
+         */
+        "source"?: string;
     }
     interface OagChangelogEntry {
         /**

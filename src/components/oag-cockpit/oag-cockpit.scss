@@ -45,7 +45,8 @@
 
                 .header,
                 .footer {
-                    padding: calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-vertical)) calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-horizontal));
+                    padding: calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-vertical))
+                        calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-horizontal));
                 }
 
                 .header {
@@ -64,7 +65,7 @@
     }
 }
 
-:host([type=side]) {
+:host([type='side']) {
     display: block;
     height: 100%;
 
@@ -85,7 +86,7 @@
         }
     }
 
-    &:host([visible=true]) {
+    &:host([visible='true']) {
         .backdrop {
             animation: var(--cockpit-show-animation-duration) ease forwards fadeIn;
         }
@@ -101,8 +102,7 @@
         }
     }
 
-    &:host([visible=false]) {
-
+    &:host([visible='false']) {
         .backdrop {
             animation: var(--cockpit-show-animation-duration) ease forwards fadeOut;
         }
