@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Demo - Audio</title>
+
+        <script type="module" src="/build/oag-components.esm.js"></script>
+        <script nomodule src="/build/oag-components.js"></script>
+        <link rel="stylesheet" href="/build/oag-components.css" />
+
+        <style>
+            .audio-guide {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 2em;
+
+                .item {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                    align-items: center;
+                    position: relative;
+
+                    .number {
+                        background-color: var(--oag-colors-contrast);
+                        color: var(--oag-colors-on-contrast);
+                        font-size: 1.35rem;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        left: -20px;
+                        top: -20px;
+                        z-index: 1;
+                        font-weight: bold;
+                    }
+
+                    oag-audio {
+                        flex: 1;
+                        --padding: 40px 40px 40px 60px;
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <oag-application>
+            <oag-content>
+                <h1>Audio</h1>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/demos/screen-map.html">Screen Map</a>
+                    </li>
+                    <li>
+                        <a href="/demos/cockpit.html">Cockpit</a>
+                    </li>
+                    <li>
+                        <a href="/demos/hero.html">Hero</a>
+                    </li>
+                    <li>
+                        <a href="/demos/figure.html">Figure</a>
+                    </li>
+                    <li>
+                        <a href="/demos/content.html">Content</a>
+                    </li>
+                    <li>
+                        <a href="/demos/audio.html">Audio</a>
+                    </li>
+                </ul>
+            </oag-content>
+            <oag-content>
+                <oag-audio source="https://data.ortsarchiv-gemeinlebarn.org/samples/file_example_MP3_700KB.mp3"
+                    headline="Titel">
+                    Description
+                </oag-audio>
+            </oag-content>
+            <oag-content>
+                <div class="audio-guide">
+                    <h2>Audio Guide</h2>
+                    <div class="item">
+                        <div class="number">1</div>
+                        <oag-audio source="https://data.ortsarchiv-gemeinlebarn.org/samples/file_example_MP3_700KB.mp3"
+                            headline="Titel">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea numquam assumenda repellat
+                            porro quidem. Labore, esse temporibus, animi maiores neque nobis fuga laudantium natus unde
+                            ipsam iste veritatis eum provident ducimus quasi dicta!
+                        </oag-audio>
+                    </div>
+                    <div class="item">
+                        <div class="number">2</div>
+                        <oag-audio source="https://data.ortsarchiv-gemeinlebarn.org/samples/file_example_MP3_700KB.mp3"
+                            headline="Titel">
+                            Description
+                        </oag-audio>
+                    </div>
+                    <div class="item">
+                        <div class="number">3</div>
+                        <oag-audio source="https://data.ortsarchiv-gemeinlebarn.org/samples/file_example_MP3_700KB.mp3"
+                            headline="Titel">
+                            Description
+                        </oag-audio>
+                    </div>
+                </div>
+            </oag-content>
+        </oag-application>
+    </body>
+
+</html>

@@ -24,6 +24,16 @@ export namespace Components {
          */
         "loadedDelay": number;
     }
+    interface OagAudio {
+        /**
+          * @default ''
+         */
+        "headline": string;
+        /**
+          * @default ''
+         */
+        "source": string;
+    }
     interface OagChangelogEntry {
         /**
           * @default ''
@@ -198,11 +208,11 @@ export namespace Components {
         /**
           * @default ''
          */
-        "subtitle": string;
+        "maintitle": string;
         /**
           * @default ''
          */
-        "title": string;
+        "subtitle": string;
     }
     interface OagReference {
         /**
@@ -296,6 +306,12 @@ declare global {
     var HTMLOagApplicationElement: {
         prototype: HTMLOagApplicationElement;
         new (): HTMLOagApplicationElement;
+    };
+    interface HTMLOagAudioElement extends Components.OagAudio, HTMLStencilElement {
+    }
+    var HTMLOagAudioElement: {
+        prototype: HTMLOagAudioElement;
+        new (): HTMLOagAudioElement;
     };
     interface HTMLOagChangelogEntryElement extends Components.OagChangelogEntry, HTMLStencilElement {
     }
@@ -478,6 +494,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "oag-application": HTMLOagApplicationElement;
+        "oag-audio": HTMLOagAudioElement;
         "oag-changelog-entry": HTMLOagChangelogEntryElement;
         "oag-changelog-version": HTMLOagChangelogVersionElement;
         "oag-cockpit": HTMLOagCockpitElement;
@@ -519,6 +536,16 @@ declare namespace LocalJSX {
          */
         "loadedDelay"?: number;
         "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
+    }
+    interface OagAudio {
+        /**
+          * @default ''
+         */
+        "headline"?: string;
+        /**
+          * @default ''
+         */
+        "source"?: string;
     }
     interface OagChangelogEntry {
         /**
@@ -695,11 +722,11 @@ declare namespace LocalJSX {
         /**
           * @default ''
          */
-        "subtitle"?: string;
+        "maintitle"?: string;
         /**
           * @default ''
          */
-        "title"?: string;
+        "subtitle"?: string;
     }
     interface OagReference {
         /**
@@ -765,6 +792,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "oag-application": OagApplication;
+        "oag-audio": OagAudio;
         "oag-changelog-entry": OagChangelogEntry;
         "oag-changelog-version": OagChangelogVersion;
         "oag-cockpit": OagCockpit;
@@ -796,6 +824,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "oag-application": LocalJSX.OagApplication & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
+            "oag-audio": LocalJSX.OagAudio & JSXBase.HTMLAttributes<HTMLOagAudioElement>;
             "oag-changelog-entry": LocalJSX.OagChangelogEntry & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
             "oag-changelog-version": LocalJSX.OagChangelogVersion & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
             "oag-cockpit": LocalJSX.OagCockpit & JSXBase.HTMLAttributes<HTMLOagCockpitElement>;

@@ -1,0 +1,102 @@
+:host {
+    --border-radius: var(--default-radius, 0.4em);
+    --padding: var(--default-layout, 40px);
+
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    overflow: hidden;
+    position: relative;
+    gap: 20px;
+
+    @include global-buttons;
+
+    .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 40px;
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .avatar {
+                background-color: #eee;
+                border-radius: 999em;
+                width: 40px;
+                height: 40px;
+                display: none;
+            }
+
+            .title {
+                font-weight: bold;
+                color: #333;
+                font-size: 1.35em;
+                margin: 0;
+                line-height: 1.35;
+            }
+
+            .description {
+                margin: 0;
+                margin-top: 5px;
+                line-height: 1.5;
+                font-weight: normal;
+                color: #555;
+            }
+        }
+
+        .player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-self: center;
+
+            button {
+                width: 50px;
+                height: 50px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                border-radius: 999em;
+            }
+        }
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        .times {
+            color: #777;
+            padding: 10px 40px;
+            display: none;
+        }
+
+        .duration {
+            width: 100%;
+            height: 4px;
+            background-color: #ccc;
+
+            .progress {
+                background-color: #444;
+                height: 100%;
+                width: 30%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .audio {
+        .top {
+            flex-direction: column;
+        }
+    }
+}

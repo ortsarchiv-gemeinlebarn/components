@@ -6,7 +6,7 @@ import { Component, Host, Prop, h } from '@stencil/core';
     shadow: true,
 })
 export class OagProject {
-    @Prop() public title: string = '';
+    @Prop() public maintitle: string = '';
     @Prop() public subtitle: string = '';
     @Prop() public href: string = '';
     @Prop() public hrefLabel: string = 'Projekt ansehen';
@@ -39,7 +39,7 @@ export class OagProject {
                             <slot name="icon"></slot>
                         </div>
                         <div class="content">
-                            <h3 class="title">{this.title}</h3>
+                            <h3 class="title">{this.maintitle}</h3>
                             <p class="subtitle">{this.subtitle}</p>
                             <div class="content">
                                 <slot></slot>
