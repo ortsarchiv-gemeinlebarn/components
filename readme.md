@@ -5,6 +5,7 @@
 ## Components
 
 - [`oag-application`](./docs/components/oag-application/readme.md)
+- [`oag-audio`](./docs/components/oag-audio/readme.md)
 - [`oag-changelog-entry`](./docs/components/oag-changelog-entry/readme.md)
 - [`oag-changelog-version`](./docs/components/oag-changelog-version/readme.md)
 - [`oag-cockpit`](./docs/components/oag-cockpit/readme.md)
@@ -31,6 +32,11 @@
 - [`oag-tooltip`](./docs/components/oag-tooltip/readme.md)
 
 ## Changelog
+
+### [Version 2.19.0](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.19.0)
+
+- Bottom Sheet Cockpit
+- Audio Component
 
 ### [Version 2.18.0](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.18.0)
 
