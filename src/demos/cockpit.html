@@ -77,19 +77,28 @@
                         <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/demos/screen-map.html">Screen Map</a>
+                        <a href="/demos/audio.html">Audio</a>
                     </li>
                     <li>
                         <a href="/demos/cockpit.html">Cockpit</a>
                     </li>
                     <li>
-                        <a href="/demos/hero.html">Hero</a>
+                        <a href="/demos/content.html">Content</a>
                     </li>
                     <li>
                         <a href="/demos/figure.html">Figure</a>
                     </li>
                     <li>
-                        <a href="/demos/content.html">Content</a>
+                        <a href="/demos/gallery.html">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/demos/hero.html">Hero</a>
+                    </li>
+                    <li>
+                        <a href="/demos/project.html">Project</a>
+                    </li>
+                    <li>
+                        <a href="/demos/screen-map.html">Screen Map</a>
                     </li>
                 </ul>
             </oag-hero>
@@ -129,8 +138,37 @@
                 </nav>
             </oag-cockpit>
 
-            <oag-cockpit id="cockpit-bottom-sheet" type="sheet">
+            <oag-cockpit id="cockpit-bottom-sheet" type="sheet" close-button="false">
                 <h1 slot="head">Bottom Sheet</h1>
+                <button slot="footer" onclick="closeSheet()">Von außen schließen</button>
+
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ex voluptatibus possimus cupiditate
+                    exercitationem labore quia asperiores reprehenderit officia veritatis facere quidem laudantium
+                    accusantium mollitia, quae aliquid nam ipsum neque provident aspernatur nulla consectetur. Illo
+                    fugiat eligendi consequatur reprehenderit ut aliquam accusantium necessitatibus totam nemo corrupti
+                    aspernatur obcaecati incidunt, officiis ipsam doloremque tenetur velit odit harum eos odio
+                    molestiae. Nam veritatis officia voluptas esse non odio, numquam tempore, inventore, saepe nobis at
+                    dignissimos quibusdam et beatae sequi? Assumenda, ipsam. Laboriosam, cupiditate voluptatem minus
+                    architecto ut praesentium eius iste mollitia, vitae odio dolorum ea ab, dolorem repellendus nam.
+                    Perspiciatis, esse sapiente?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ex voluptatibus possimus cupiditate
+                    exercitationem labore quia asperiores reprehenderit officia veritatis facere quidem laudantium
+                    accusantium mollitia, quae aliquid nam ipsum neque provident aspernatur nulla consectetur. Illo
+                    fugiat eligendi consequatur reprehenderit ut aliquam accusantium necessitatibus totam nemo corrupti
+                    aspernatur obcaecati incidunt, officiis ipsam doloremque tenetur velit odit harum eos odio
+                    molestiae. Nam veritatis officia voluptas esse non odio, numquam tempore, inventore, saepe nobis at
+                    dignissimos quibusdam et beatae sequi? Assumenda, ipsam. Laboriosam, cupiditate voluptatem minus
+                    architecto ut praesentium eius iste mollitia, vitae odio dolorum ea ab, dolorem repellendus nam.
+                    Perspiciatis, esse sapiente?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ex voluptatibus possimus cupiditate
+                    exercitationem labore quia asperiores reprehenderit officia veritatis facere quidem laudantium
+                    accusantium mollitia, quae aliquid nam ipsum neque provident aspernatur nulla consectetur. Illo
+                    fugiat eligendi consequatur reprehenderit ut aliquam accusantium necessitatibus totam nemo corrupti
+                    aspernatur obcaecati incidunt, officiis ipsam doloremque tenetur velit odit harum eos odio
+                    molestiae. Nam veritatis officia voluptas esse non odio, numquam tempore, inventore, saepe nobis at
+                    dignissimos quibusdam et beatae sequi? Assumenda, ipsam. Laboriosam, cupiditate voluptatem minus
+                    architecto ut praesentium eius iste mollitia, vitae odio dolorum ea ab, dolorem repellendus nam.
+                    Perspiciatis, esse sapiente?</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ex voluptatibus possimus cupiditate
                     exercitationem labore quia asperiores reprehenderit officia veritatis facere quidem laudantium
                     accusantium mollitia, quae aliquid nam ipsum neque provident aspernatur nulla consectetur. Illo
@@ -287,6 +325,8 @@
 
             window.openCockpitSide = () => document.getElementById('cockpit-side').setAttribute('visible', 'true');
             window.openCockpitBottomSheet = () => document.getElementById('cockpit-bottom-sheet').setAttribute('visible', 'true');
+
+            window.closeSheet = () => document.getElementById('cockpit-bottom-sheet').close();
 
         </script>
 

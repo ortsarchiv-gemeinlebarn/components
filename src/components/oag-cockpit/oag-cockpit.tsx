@@ -1,4 +1,4 @@
-import { Component, Host, Prop, Element, h } from '@stencil/core';
+import { Component, Element, h, Host, Method, Prop } from '@stencil/core';
 
 @Component({
     tag: 'oag-cockpit',
@@ -6,12 +6,12 @@ import { Component, Host, Prop, Element, h } from '@stencil/core';
     shadow: true,
 })
 export class OagCockpit {
-
     @Prop({ reflect: true, mutable: true }) visible: boolean | 'init' = 'init';
-    @Prop() closeLabel: string = 'Menü schließen';
+    @Prop() closeButton: string = 'Menü schließen';
     @Element() private element: HTMLElement;
 
-    public close = () => {
+    @Method()
+    public async close() {
         this.element.setAttribute('visible', 'false');
     }
 
@@ -38,24 +38,37 @@ export class OagCockpit {
                             </div>
 
                             <div class="footer">
-                                <button type="button" class="close" onClick={() => this.close()}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M320 320L192 192M192 320l128-128" /></svg>
-                                    <span>{this.closeLabel}</span>
-                                </button>
-                            </div>
-
-                            <div class="bottom">
-                                <slot name="bottom"></slot>
+                                {this.closeButton && this.closeButton != 'false' && (
+                                    <button type="button" class="close" onClick={() => this.close()}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                            <path
+                                                d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-miterlimit="10"
+                                                stroke-width="32"
+                                            />
+                                            <path
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="32"
+                                                d="M320 320L192 192M192 320l128-128"
+                                            />
+                                        </svg>
+                                        <span>{this.closeButton}</span>
+                                    </button>
+                                )}
+                                <slot name="footer"></slot>
                             </div>
                         </div>
                         <div class="right">
                             <slot name="right"></slot>
                         </div>
                     </div>
-
                 </div>
             </Host>
         );
     }
-
 }

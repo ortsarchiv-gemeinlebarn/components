@@ -1,7 +1,5 @@
 # OAG Components Library
 
-## Guide
-
 ## Components
 
 - [`oag-application`](./docs/components/oag-application/readme.md)
@@ -32,6 +30,10 @@
 - [`oag-tooltip`](./docs/components/oag-tooltip/readme.md)
 
 ## Changelog
+
+### [Version 2.19.1](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.19.1)
+
+- Bottom Sheet: Fixing Scroll & Padding
 
 ### [Version 2.19.0](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.19.0)
 

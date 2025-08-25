@@ -55,10 +55,11 @@ export namespace Components {
         "version": string;
     }
     interface OagCockpit {
+        "close": () => Promise<void>;
         /**
           * @default 'Menü schließen'
          */
-        "closeLabel": string;
+        "closeButton": string;
         /**
           * @default 'init'
          */
@@ -571,7 +572,7 @@ declare namespace LocalJSX {
         /**
           * @default 'Menü schließen'
          */
-        "closeLabel"?: string;
+        "closeButton"?: string;
         /**
           * @default 'init'
          */
