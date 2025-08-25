@@ -11,20 +11,47 @@ export { GalleryItem } from "./models/gallery-item";
 export { Map } from "ol";
 export namespace Components {
     interface OagApplication {
+        /**
+          * @default false
+         */
         "desktopOnly": boolean;
+        /**
+          * @default false
+         */
         "desktopOptimized": boolean;
+        /**
+          * @default 1000
+         */
         "loadedDelay": number;
     }
     interface OagChangelogEntry {
+        /**
+          * @default ''
+         */
         "label": string;
+        /**
+          * @default ''
+         */
         "tags": string;
     }
     interface OagChangelogVersion {
+        /**
+          * @default ''
+         */
         "date": string;
+        /**
+          * @default ''
+         */
         "version": string;
     }
     interface OagCockpit {
+        /**
+          * @default 'Menü schließen'
+         */
         "closeLabel": string;
+        /**
+          * @default 'init'
+         */
         "visible": boolean | 'init';
     }
     interface OagCockpitNavigationItem {
@@ -35,11 +62,17 @@ export namespace Components {
     }
     interface OagFigure {
         "caption": string;
+        /**
+          * @default 'inner'
+         */
         "maxWidth": 'inner' | 'outer';
         "reference": string;
     }
     interface OagGallery {
         "images": Array<GalleryItem> | string;
+        /**
+          * @default false
+         */
         "preview": boolean;
     }
     interface OagHero {
@@ -47,19 +80,46 @@ export namespace Components {
         "backgroundOverlay": string;
         "caption": string;
         "headline": string;
+        /**
+          * @default true
+         */
         "scrollIndicator": boolean;
+        /**
+          * @default "Nach unten scrollen!"
+         */
         "scrollIndicatorLabel": string;
     }
     interface OagHorizontalGallery {
         "images": Array<GalleryItem> | string;
     }
     interface OagImageComparison {
+        /**
+          * @default ''
+         */
         "labelLeft": string;
+        /**
+          * @default ''
+         */
         "labelRight": string;
+        /**
+          * @default undefined
+         */
         "sliderIconPosition"?: any;
+        /**
+          * @default 50
+         */
         "sliderPosition": number;
+        /**
+          * @default 4
+         */
         "sliderWidth": number;
+        /**
+          * @default ''
+         */
         "srcLeft": string;
+        /**
+          * @default ''
+         */
         "srcRight": string;
     }
     interface OagImprint {
@@ -67,56 +127,137 @@ export namespace Components {
     interface OagInformation {
     }
     interface OagLightbox {
+        /**
+          * @default ''
+         */
         "caption": string;
     }
     interface OagLoading {
+        /**
+          * @default "Ortsarchiv Gemeinlebarn"
+         */
         "label": string;
+        /**
+          * @default "Lade Projekt"
+         */
         "text": string;
     }
     interface OagMap {
+        /**
+          * @default 'osm'
+         */
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+          * @default true
+         */
         "disableTouchClass": boolean;
     }
     interface OagMenu {
+        /**
+          * @default 5
+         */
         "fillAfterScrolledPosition": number;
     }
     interface OagMenuItem {
     }
     interface OagMisc {
+        /**
+          * @default ''
+         */
         "image": string;
+        /**
+          * @default ''
+         */
         "label": string;
+        /**
+          * @default ''
+         */
         "tagline": string;
     }
     interface OagProject {
+        /**
+          * @default ''
+         */
         "backgroundImage": string;
+        /**
+          * @default ''
+         */
         "backgroundOverlay": string;
+        /**
+          * @default 'center center'
+         */
         "backgroundPosition": string;
+        /**
+          * @default ''
+         */
         "href": string;
+        /**
+          * @default 'Projekt ansehen'
+         */
         "hrefLabel": string;
+        /**
+          * @default ''
+         */
         "subtitle": string;
+        /**
+          * @default ''
+         */
         "title": string;
     }
     interface OagReference {
+        /**
+          * @default 'quelle'
+         */
         "content": 'quelle' | 'literatur';
+        /**
+          * @default ''
+         */
         "label": string;
+        /**
+          * @default ''
+         */
         "referenceCode": string;
     }
     interface OagScreenBackgroundLayerItem {
+        /**
+          * @default false
+         */
         "active": boolean;
         "slug": string;
     }
     interface OagScreenContentLayerItem {
+        /**
+          * @default '#000000'
+         */
         "color": string;
+        /**
+          * @default false
+         */
         "hide": boolean;
         "slug": string;
     }
     interface OagScreenMap {
+        /**
+          * @default 'orthophoto'
+         */
         "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+          * @default true
+         */
         "disableTouchClass": boolean;
+        /**
+          * @default 'init'
+         */
         "visible": boolean | 'init';
     }
     interface OagTooltip {
+        /**
+          * @default 'none'
+         */
         "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
+        /**
+          * @default false
+         */
         "initialShow": boolean;
         "x": string;
         "y": string;
@@ -365,21 +506,48 @@ declare global {
 }
 declare namespace LocalJSX {
     interface OagApplication {
+        /**
+          * @default false
+         */
         "desktopOnly"?: boolean;
+        /**
+          * @default false
+         */
         "desktopOptimized"?: boolean;
+        /**
+          * @default 1000
+         */
         "loadedDelay"?: number;
         "onLoaded"?: (event: OagApplicationCustomEvent<void>) => void;
     }
     interface OagChangelogEntry {
+        /**
+          * @default ''
+         */
         "label"?: string;
+        /**
+          * @default ''
+         */
         "tags"?: string;
     }
     interface OagChangelogVersion {
+        /**
+          * @default ''
+         */
         "date"?: string;
+        /**
+          * @default ''
+         */
         "version"?: string;
     }
     interface OagCockpit {
+        /**
+          * @default 'Menü schließen'
+         */
         "closeLabel"?: string;
+        /**
+          * @default 'init'
+         */
         "visible"?: boolean | 'init';
     }
     interface OagCockpitNavigationItem {
@@ -390,11 +558,17 @@ declare namespace LocalJSX {
     }
     interface OagFigure {
         "caption"?: string;
+        /**
+          * @default 'inner'
+         */
         "maxWidth"?: 'inner' | 'outer';
         "reference"?: string;
     }
     interface OagGallery {
         "images"?: Array<GalleryItem> | string;
+        /**
+          * @default false
+         */
         "preview"?: boolean;
     }
     interface OagHero {
@@ -402,19 +576,46 @@ declare namespace LocalJSX {
         "backgroundOverlay"?: string;
         "caption"?: string;
         "headline"?: string;
+        /**
+          * @default true
+         */
         "scrollIndicator"?: boolean;
+        /**
+          * @default "Nach unten scrollen!"
+         */
         "scrollIndicatorLabel"?: string;
     }
     interface OagHorizontalGallery {
         "images"?: Array<GalleryItem> | string;
     }
     interface OagImageComparison {
+        /**
+          * @default ''
+         */
         "labelLeft"?: string;
+        /**
+          * @default ''
+         */
         "labelRight"?: string;
+        /**
+          * @default undefined
+         */
         "sliderIconPosition"?: any;
+        /**
+          * @default 50
+         */
         "sliderPosition"?: number;
+        /**
+          * @default 4
+         */
         "sliderWidth"?: number;
+        /**
+          * @default ''
+         */
         "srcLeft"?: string;
+        /**
+          * @default ''
+         */
         "srcRight"?: string;
     }
     interface OagImprint {
@@ -422,47 +623,113 @@ declare namespace LocalJSX {
     interface OagInformation {
     }
     interface OagLightbox {
+        /**
+          * @default ''
+         */
         "caption"?: string;
     }
     interface OagLoading {
+        /**
+          * @default "Ortsarchiv Gemeinlebarn"
+         */
         "label"?: string;
+        /**
+          * @default "Lade Projekt"
+         */
         "text"?: string;
     }
     interface OagMap {
+        /**
+          * @default 'osm'
+         */
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+          * @default true
+         */
         "disableTouchClass"?: boolean;
         "onReadyMap"?: (event: OagMapCustomEvent<Map>) => void;
     }
     interface OagMenu {
+        /**
+          * @default 5
+         */
         "fillAfterScrolledPosition"?: number;
     }
     interface OagMenuItem {
     }
     interface OagMisc {
+        /**
+          * @default ''
+         */
         "image"?: string;
+        /**
+          * @default ''
+         */
         "label"?: string;
+        /**
+          * @default ''
+         */
         "tagline"?: string;
     }
     interface OagProject {
+        /**
+          * @default ''
+         */
         "backgroundImage"?: string;
+        /**
+          * @default ''
+         */
         "backgroundOverlay"?: string;
+        /**
+          * @default 'center center'
+         */
         "backgroundPosition"?: string;
+        /**
+          * @default ''
+         */
         "href"?: string;
+        /**
+          * @default 'Projekt ansehen'
+         */
         "hrefLabel"?: string;
+        /**
+          * @default ''
+         */
         "subtitle"?: string;
+        /**
+          * @default ''
+         */
         "title"?: string;
     }
     interface OagReference {
+        /**
+          * @default 'quelle'
+         */
         "content"?: 'quelle' | 'literatur';
+        /**
+          * @default ''
+         */
         "label"?: string;
+        /**
+          * @default ''
+         */
         "referenceCode"?: string;
     }
     interface OagScreenBackgroundLayerItem {
+        /**
+          * @default false
+         */
         "active"?: boolean;
         "slug"?: string;
     }
     interface OagScreenContentLayerItem {
+        /**
+          * @default '#000000'
+         */
         "color"?: string;
+        /**
+          * @default false
+         */
         "hide"?: boolean;
         "onHideLayer"?: (event: OagScreenContentLayerItemCustomEvent<string>) => void;
         "onHighlightLayer"?: (event: OagScreenContentLayerItemCustomEvent<string>) => void;
@@ -470,13 +737,28 @@ declare namespace LocalJSX {
         "slug"?: string;
     }
     interface OagScreenMap {
+        /**
+          * @default 'orthophoto'
+         */
         "backgroundLayer"?: 'orthophoto' | 'standard' | 'grau' | 'osm';
+        /**
+          * @default true
+         */
         "disableTouchClass"?: boolean;
         "onReadyMap"?: (event: OagScreenMapCustomEvent<Map>) => void;
+        /**
+          * @default 'init'
+         */
         "visible"?: boolean | 'init';
     }
     interface OagTooltip {
+        /**
+          * @default 'none'
+         */
         "icon"?: 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
+        /**
+          * @default false
+         */
         "initialShow"?: boolean;
         "x"?: string;
         "y"?: string;

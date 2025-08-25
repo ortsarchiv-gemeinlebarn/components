@@ -18,13 +18,26 @@ $tabletBreakpoint: 1024px;
     --phone-breakpoint: $phoneBreakpoint;
     --tablet-breakpoint: $tabletBreakpoint;
 
-    --default-button-background-color: #176B87;
-    --default-button-background-color-hover: #192655;
-    --default-button-background-color-active: #04364A;
-    --default-button-text-color: #fff;
-    --default-button-text-color-hover: #fff;
-    --default-button-text-color-active: #fff;
+    --default-button-background-color: var(--oag-colors-primary);
+    --default-button-background-color-hover: var(--oag-colors-primary-over);
+    --default-button-background-color-active: var(--oag-colors-primary-active);
+    --default-button-text-color: var(--oag-colors-on-primary);
+    --default-button-text-color-hover: var(--oag-colors-on-primary);
+    --default-button-text-color-active: var(--oag-colors-on-primary);
 
     --default-cockpit-item-padding-vertical: 8px;
     --default-cockpit-item-padding-horizontal: 14px;
+
+    --oag-colors-primary: #176b87;
+    --oag-colors-primary-over: #192655;
+    --oag-colors-primary-active: #04364a;
+    --oag-colors-on-primary: #fff;
+    --oag-colors-variant: #443d7d;
+    --oag-colors-variant-over: #3a3259;
+    --oag-colors-variant-active: #25204f;
+    --oag-colors-on-variant: #fff;
+    --oag-colors-secondary: #6b8717;
+    --oag-colors-on-secondary: #fff;
+    --oag-colors-pastel: #d1d191;
+    --oag-colors-on-pastel: #333333;
 }

@@ -3,6 +3,9 @@
     --cockpit-hide-animation-duration: 300ms;
     --cockpit-padding: var(--default-layout-padding);
 
+    --cockpit-sheet-modal-max-width: 640px;
+    --cockpit-sheet-modal-top-border-radius: var(--default-radius);
+
     --cockpit-animation-opening-position-top: none;
     --cockpit-animation-opening-position-right: none;
     --cockpit-animation-opening-position-bottom: 0;
@@ -45,7 +48,8 @@
 
                 .header,
                 .footer {
-                    padding: calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-vertical)) calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-horizontal));
+                    padding: calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-vertical))
+                        calc(var(--cockpit-padding) + var(--default-cockpit-item-padding-horizontal));
                 }
 
                 .header {
@@ -64,7 +68,7 @@
     }
 }
 
-:host([type=side]) {
+:host([type='side']) {
     display: block;
     height: 100%;
 
@@ -85,7 +89,7 @@
         }
     }
 
-    &:host([visible=true]) {
+    &:host([visible='true']) {
         .backdrop {
             animation: var(--cockpit-show-animation-duration) ease forwards fadeIn;
         }
@@ -101,8 +105,7 @@
         }
     }
 
-    &:host([visible=false]) {
-
+    &:host([visible='false']) {
         .backdrop {
             animation: var(--cockpit-show-animation-duration) ease forwards fadeOut;
         }
@@ -110,6 +113,71 @@
         .modal {
             transform: translateX(0%);
             animation-name: slideOut;
+            animation-duration: var(--cockpit-hide-animation-duration);
+            animation-timing-function: ease;
+            animation-delay: calc(0.5 * var(--cockpit-hide-animation-duration));
+            animation-fill-mode: forwards;
+
+            .container {
+                opacity: 1;
+                animation-name: fadeOut;
+                animation-duration: var(--hide-animation-duration);
+                animation-timing-function: ease;
+                animation-delay: 0s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+}
+
+:host([type='sheet']) {
+    display: block;
+    height: 100%;
+
+    .modal {
+        display: flex;
+        bottom: 0;
+        left: 50%;
+        width: 100%;
+        max-width: var(--cockpit-sheet-modal-max-width);
+        border-top-left-radius: var(--cockpit-sheet-modal-top-border-radius);
+        border-top-right-radius: var(--cockpit-sheet-modal-top-border-radius);
+        height: auto;
+        overflow: hidden;
+        transform: translate(-50%, 100%);
+
+        .container {
+            display: flex;
+            height: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    &:host([visible='true']) {
+        .backdrop {
+            animation: var(--cockpit-show-animation-duration) ease forwards fadeIn;
+        }
+
+        .modal {
+            transform: translate(-50%, 100%);
+            animation: var(--cockpit-show-animation-duration) ease forwards slideUp;
+
+            .container {
+                opacity: 0;
+                animation: var(--cockpit-show-animation-duration) ease calc(0.5 * var(--cockpit-hide-animation-duration)) forwards fadeIn;
+            }
+        }
+    }
+
+    &:host([visible='false']) {
+        .backdrop {
+            animation: var(--cockpit-show-animation-duration) ease forwards fadeOut;
+        }
+
+        .modal {
+            transform: translate(-50%, 0%);
+            animation-name: slideDown;
             animation-duration: var(--cockpit-hide-animation-duration);
             animation-timing-function: ease;
             animation-delay: calc(0.5 * var(--cockpit-hide-animation-duration));
@@ -144,6 +212,26 @@
 
     to {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+    }
+
+    to {
+        transform: translate(-50%, 0%);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, 0%);
+    }
+
+    to {
+        transform: translate(-50%, 100%);
     }
 }
 
