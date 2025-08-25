@@ -7,10 +7,23 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type                | Default            |
-| ------------ | ------------- | ----------- | ------------------- | ------------------ |
-| `closeLabel` | `close-label` |             | `string`            | `'Menü schließen'` |
-| `visible`    | `visible`     |             | `"init" \| boolean` | `'init'`           |
+| Property      | Attribute      | Description | Type                | Default            |
+| ------------- | -------------- | ----------- | ------------------- | ------------------ |
+| `closeButton` | `close-button` |             | `string`            | `'Menü schließen'` |
+| `visible`     | `visible`      |             | `"init" \| boolean` | `'init'`           |
+
+
+## Methods
+
+### `close() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
