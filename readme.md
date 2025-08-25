@@ -2,20 +2,30 @@
 
 ## Components
 
-- [`oag-gallery`](./docs/components/oag-gallery/readme.md)
 - [`oag-application`](./docs/components/oag-application/readme.md)
+- [`oag-changelog-entry`](./docs/components/oag-changelog-entry/readme.md)
+- [`oag-changelog-version`](./docs/components/oag-changelog-version/readme.md)
+- [`oag-cockpit`](./docs/components/oag-cockpit/readme.md)
+- [`oag-cockpit-navigation-item`](./docs/components/oag-cockpit-navigation-item/readme.md)
 - [`oag-content`](./docs/components/oag-content/readme.md)
 - [`oag-figure`](./docs/components/oag-figure/readme.md)
+- [`oag-gallery`](./docs/components/oag-gallery/readme.md)
 - [`oag-hero`](./docs/components/oag-hero/readme.md)
 - [`oag-horizontal-gallery`](./docs/components/oag-horizontal-gallery/readme.md)
 - [`oag-image-comparison`](./docs/components/oag-image-comparison/readme.md)
+- [`oag-imprint`](./docs/components/oag-imprint/readme.md)
 - [`oag-information`](./docs/components/oag-information/readme.md)
 - [`oag-lightbox`](./docs/components/oag-lightbox/readme.md)
+- [`oag-loading`](./docs/components/oag-loading/readme.md)
 - [`oag-map`](./docs/components/oag-map/readme.md)
+- [`oag-menu`](./docs/components/oag-menu/readme.md)
+- [`oag-menu-item`](./docs/components/oag-menu-item/readme.md)
+- [`oag-misc`](./docs/components/oag-misc/readme.md)
+- [`oag-project`](./docs/components/oag-project/readme.md)
 - [`oag-reference`](./docs/components/oag-reference/readme.md)
-- [`oag-screen-map`](./docs/components/oag-screen-map/readme.md)
 - [`oag-screen-background-layer-item`](./docs/components/oag-screen-background-layer-item/readme.md)
 - [`oag-screen-content-layer-item`](./docs/components/oag-screen-content-layer-item/readme.md)
+- [`oag-screen-map`](./docs/components/oag-screen-map/readme.md)
 - [`oag-tooltip`](./docs/components/oag-tooltip/readme.md)
 
 ## Changelog
