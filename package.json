@@ -31,13 +31,12 @@
         "generate": "stencil generate"
     },
     "dependencies": {
-        "@stencil/core": "^4.23.1",
-        "ol": "^10.4.0",
+        "@stencil/core": "^4.36.3",
+        "ol": "^10.6.1",
         "simplelightbox": "^2.14.3"
     },
     "devDependencies": {
-        "@stencil/sass": "^3.0.12",
-        "@types/node": "^22.13.8"
+        "@stencil/sass": "^3.2.2"
     },
     "license": "MIT"
 }
