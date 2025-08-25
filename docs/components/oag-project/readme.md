@@ -1,6 +1,4 @@
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -14,7 +12,6 @@
 | `maintitle`          | `maintitle`           |             | `string` | `''`                |
 | `subtitle`           | `subtitle`            |             | `string` | `''`                |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

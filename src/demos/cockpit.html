@@ -91,22 +91,25 @@
                     <li>
                         <a href="/demos/content.html">Content</a>
                     </li>
-                    <li>
-                        <a href="/demos/audio.html">Audio</a>
-                    </li>
                 </ul>
             </oag-hero>
 
             <oag-menu>
-                <oag-menu-item class="open-cockpit" onClick="openCockpit()">
+                <oag-menu-item class="open-cockpit" onClick="openCockpitSide()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352" />
                 </svg>
-                    <span>Menü</span>
+                    <span>Side</span>
+                </oag-menu-item>
+                <oag-menu-item class="open-cockpit" onClick="openCockpitBottomSheet()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352" />
+                </svg>
+                    <span>Bottom Sheet</span>
                 </oag-menu-item>
             </oag-menu>
 
-            <oag-cockpit type="side">
+            <oag-cockpit id="cockpit-side" type="side">
                 <h1 slot="head">Menü</h1>
                 <nav slot="navigation">
                     <div class="navigation-column">
@@ -124,6 +127,19 @@
                         <oag-cockpit-navigation-item class="level-2" link="link-5">Link 5</oag-cockpit-navigation-item>
                     </div>
                 </nav>
+            </oag-cockpit>
+
+            <oag-cockpit id="cockpit-bottom-sheet" type="sheet">
+                <h1 slot="head">Bottom Sheet</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste ex voluptatibus possimus cupiditate
+                    exercitationem labore quia asperiores reprehenderit officia veritatis facere quidem laudantium
+                    accusantium mollitia, quae aliquid nam ipsum neque provident aspernatur nulla consectetur. Illo
+                    fugiat eligendi consequatur reprehenderit ut aliquam accusantium necessitatibus totam nemo corrupti
+                    aspernatur obcaecati incidunt, officiis ipsam doloremque tenetur velit odit harum eos odio
+                    molestiae. Nam veritatis officia voluptas esse non odio, numquam tempore, inventore, saepe nobis at
+                    dignissimos quibusdam et beatae sequi? Assumenda, ipsam. Laboriosam, cupiditate voluptatem minus
+                    architecto ut praesentium eius iste mollitia, vitae odio dolorum ea ab, dolorem repellendus nam.
+                    Perspiciatis, esse sapiente?</p>
             </oag-cockpit>
 
             <oag-content>
@@ -269,9 +285,9 @@
 
         <script type="module">
 
-            window.openCockpit = () => document.getElementsByTagName('oag-cockpit')[0].setAttribute('visible', 'true');
+            window.openCockpitSide = () => document.getElementById('cockpit-side').setAttribute('visible', 'true');
+            window.openCockpitBottomSheet = () => document.getElementById('cockpit-bottom-sheet').setAttribute('visible', 'true');
 
-            window.openCockpit();
         </script>
 
     </body>
