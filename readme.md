@@ -31,6 +31,10 @@
 
 ## Changelog
 
+### [Version 2.20.0](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.19.1)
+
+- Audio Styling Options
+
 ### [Version 2.19.1](https://github.com/ortsarchiv-gemeinlebarn/components/releases/tag/v2.19.1)
 
 - Bottom Sheet: Fixing Scroll & Padding
