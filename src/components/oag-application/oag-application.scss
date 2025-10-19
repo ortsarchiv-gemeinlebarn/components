@@ -1,7 +1,7 @@
 :host {
     --section-gap-height: var(--default-layout-padding);
     --font-family: var(--default-text-font-family);
-    --base-font-family: 16px;
+    --base-font-size: 16px;
     --information-padding: var(--default-layout-padding);
     --information-background-color: #fff;
 
@@ -13,7 +13,7 @@
     overflow: auto;
     box-sizing: border-box;
     font-family: var(--font-family);
-    font-size: var(--base-font-family);
+    font-size: var(--base-font-size);
 
     .information {
         box-sizing: border-box;
@@ -31,11 +31,9 @@
     }
 }
 
-
 @media screen and (max-width: $phoneBreakpoint) {
-
-    :host([desktop-only="true"]),
-    :host([desktop-optimized="true"]:not(.confirmed)) {
+    :host([desktop-only='true']),
+    :host([desktop-optimized='true']:not(.confirmed)) {
         .information {
             display: flex;
         }

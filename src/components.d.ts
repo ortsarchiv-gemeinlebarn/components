@@ -79,6 +79,12 @@ export namespace Components {
         "maxWidth": 'inner' | 'outer';
         "reference": string;
     }
+    interface OagFontSize {
+        /**
+          * @default this.baseFontSize
+         */
+        "fontSize": number;
+    }
     interface OagGallery {
         "images": Array<GalleryItem> | string;
         /**
@@ -350,6 +356,12 @@ declare global {
         prototype: HTMLOagFigureElement;
         new (): HTMLOagFigureElement;
     };
+    interface HTMLOagFontSizeElement extends Components.OagFontSize, HTMLStencilElement {
+    }
+    var HTMLOagFontSizeElement: {
+        prototype: HTMLOagFontSizeElement;
+        new (): HTMLOagFontSizeElement;
+    };
     interface HTMLOagGalleryElement extends Components.OagGallery, HTMLStencilElement {
     }
     var HTMLOagGalleryElement: {
@@ -502,6 +514,7 @@ declare global {
         "oag-cockpit-navigation-item": HTMLOagCockpitNavigationItemElement;
         "oag-content": HTMLOagContentElement;
         "oag-figure": HTMLOagFigureElement;
+        "oag-font-size": HTMLOagFontSizeElement;
         "oag-gallery": HTMLOagGalleryElement;
         "oag-hero": HTMLOagHeroElement;
         "oag-horizontal-gallery": HTMLOagHorizontalGalleryElement;
@@ -591,6 +604,12 @@ declare namespace LocalJSX {
          */
         "maxWidth"?: 'inner' | 'outer';
         "reference"?: string;
+    }
+    interface OagFontSize {
+        /**
+          * @default this.baseFontSize
+         */
+        "fontSize"?: number;
     }
     interface OagGallery {
         "images"?: Array<GalleryItem> | string;
@@ -800,6 +819,7 @@ declare namespace LocalJSX {
         "oag-cockpit-navigation-item": OagCockpitNavigationItem;
         "oag-content": OagContent;
         "oag-figure": OagFigure;
+        "oag-font-size": OagFontSize;
         "oag-gallery": OagGallery;
         "oag-hero": OagHero;
         "oag-horizontal-gallery": OagHorizontalGallery;
@@ -832,6 +852,7 @@ declare module "@stencil/core" {
             "oag-cockpit-navigation-item": LocalJSX.OagCockpitNavigationItem & JSXBase.HTMLAttributes<HTMLOagCockpitNavigationItemElement>;
             "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
             "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
+            "oag-font-size": LocalJSX.OagFontSize & JSXBase.HTMLAttributes<HTMLOagFontSizeElement>;
             "oag-gallery": LocalJSX.OagGallery & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
             "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
             "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
