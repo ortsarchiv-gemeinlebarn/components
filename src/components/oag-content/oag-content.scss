@@ -1,5 +1,6 @@
 :host {
     --layout-padding: var(--default-layout-padding);
+    --layout-gap: 0;
     --layout-inner-max-width: var(--default-layout-inner-max-width);
     --layout-outer-max-width: var(--default-layout-outer-max-width);
 
@@ -13,16 +14,30 @@
         display: flex;
         flex-direction: column;
         max-width: var(--layout-inner-max-width);
+        gap: var(--layout-gap);
     }
 }
 
-:host([max-width=outer]) {
+:host([layout='half']) {
+    --layout-gap: var(--default-layout-padding);
+
+    .container {
+        flex-direction: row;
+        box-sizing: border-box;
+
+        ::slotted(*) {
+            width: 50%;
+        }
+    }
+}
+
+:host([max-width='outer']) {
     .container {
         max-width: var(--layout-outer-max-width);
     }
 }
 
-:host([max-width=full]) {
+:host([max-width='full']) {
     .container {
         max-width: 100%;
     }

@@ -45,6 +45,7 @@ $sl-caption-background: transparent;
 /* Global Text Styles */
 @include global-text;
 @include global-buttons;
+@include global-table;
 
 @media screen and (max-width: $phoneBreakpoint) {
     :root {
