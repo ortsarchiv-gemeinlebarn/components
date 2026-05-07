@@ -220,6 +220,10 @@ export namespace Components {
           * @default ''
          */
         "subtitle": string;
+        /**
+          * @default ''
+         */
+        "tag": string;
     }
     interface OagReference {
         /**
@@ -747,6 +751,10 @@ declare namespace LocalJSX {
           * @default ''
          */
         "subtitle"?: string;
+        /**
+          * @default ''
+         */
+        "tag"?: string;
     }
     interface OagReference {
         /**
@@ -810,67 +818,180 @@ declare namespace LocalJSX {
         "x"?: string;
         "y"?: string;
     }
+
+    interface OagApplicationAttributes {
+        "desktopOptimized": boolean;
+        "desktopOnly": boolean;
+        "loadedDelay": number;
+    }
+    interface OagAudioAttributes {
+        "headline": string;
+        "source": string;
+    }
+    interface OagChangelogEntryAttributes {
+        "label": string;
+        "tags": string;
+    }
+    interface OagChangelogVersionAttributes {
+        "date": string;
+        "version": string;
+    }
+    interface OagCockpitAttributes {
+        "visible": string;
+        "closeButton": string;
+    }
+    interface OagCockpitNavigationItemAttributes {
+        "number": string;
+        "link": string;
+    }
+    interface OagFigureAttributes {
+        "maxWidth": 'inner' | 'outer';
+        "caption": string;
+        "reference": string;
+    }
+    interface OagFontSizeAttributes {
+        "fontSize": number;
+    }
+    interface OagGalleryAttributes {
+        "images": Array<GalleryItem> | string;
+        "preview": boolean;
+    }
+    interface OagHeroAttributes {
+        "headline": string;
+        "caption": string;
+        "backgroundImage": string;
+        "backgroundOverlay": string;
+        "scrollIndicator": boolean;
+        "scrollIndicatorLabel": string;
+    }
+    interface OagHorizontalGalleryAttributes {
+        "images": Array<GalleryItem> | string;
+    }
+    interface OagImageComparisonAttributes {
+        "srcLeft": string;
+        "srcRight": string;
+        "labelLeft": string;
+        "labelRight": string;
+        "sliderWidth": number;
+        "sliderIconPosition": string;
+        "sliderPosition": number;
+    }
+    interface OagLightboxAttributes {
+        "caption": string;
+    }
+    interface OagLoadingAttributes {
+        "label": string;
+        "text": string;
+    }
+    interface OagMapAttributes {
+        "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+        "disableTouchClass": boolean;
+    }
+    interface OagMenuAttributes {
+        "fillAfterScrolledPosition": number;
+    }
+    interface OagMiscAttributes {
+        "image": string;
+        "label": string;
+        "tagline": string;
+    }
+    interface OagProjectAttributes {
+        "maintitle": string;
+        "subtitle": string;
+        "href": string;
+        "hrefLabel": string;
+        "backgroundImage": string;
+        "backgroundOverlay": string;
+        "backgroundPosition": string;
+        "tag": string;
+    }
+    interface OagReferenceAttributes {
+        "label": string;
+        "referenceCode": string;
+        "content": 'quelle' | 'literatur';
+    }
+    interface OagScreenBackgroundLayerItemAttributes {
+        "slug": string;
+        "active": boolean;
+    }
+    interface OagScreenContentLayerItemAttributes {
+        "slug": string;
+        "color": string;
+        "hide": boolean;
+    }
+    interface OagScreenMapAttributes {
+        "visible": string;
+        "disableTouchClass": boolean;
+        "backgroundLayer": 'orthophoto' | 'standard' | 'grau' | 'osm';
+    }
+    interface OagTooltipAttributes {
+        "initialShow": boolean;
+        "x": string;
+        "y": string;
+        "icon": 'none' | 'information' | 'help' | 'person' | 'alert' | 'pin' | 'time';
+    }
+
     interface IntrinsicElements {
-        "oag-application": OagApplication;
-        "oag-audio": OagAudio;
-        "oag-changelog-entry": OagChangelogEntry;
-        "oag-changelog-version": OagChangelogVersion;
-        "oag-cockpit": OagCockpit;
-        "oag-cockpit-navigation-item": OagCockpitNavigationItem;
+        "oag-application": Omit<OagApplication, keyof OagApplicationAttributes> & { [K in keyof OagApplication & keyof OagApplicationAttributes]?: OagApplication[K] } & { [K in keyof OagApplication & keyof OagApplicationAttributes as `attr:${K}`]?: OagApplicationAttributes[K] } & { [K in keyof OagApplication & keyof OagApplicationAttributes as `prop:${K}`]?: OagApplication[K] };
+        "oag-audio": Omit<OagAudio, keyof OagAudioAttributes> & { [K in keyof OagAudio & keyof OagAudioAttributes]?: OagAudio[K] } & { [K in keyof OagAudio & keyof OagAudioAttributes as `attr:${K}`]?: OagAudioAttributes[K] } & { [K in keyof OagAudio & keyof OagAudioAttributes as `prop:${K}`]?: OagAudio[K] };
+        "oag-changelog-entry": Omit<OagChangelogEntry, keyof OagChangelogEntryAttributes> & { [K in keyof OagChangelogEntry & keyof OagChangelogEntryAttributes]?: OagChangelogEntry[K] } & { [K in keyof OagChangelogEntry & keyof OagChangelogEntryAttributes as `attr:${K}`]?: OagChangelogEntryAttributes[K] } & { [K in keyof OagChangelogEntry & keyof OagChangelogEntryAttributes as `prop:${K}`]?: OagChangelogEntry[K] };
+        "oag-changelog-version": Omit<OagChangelogVersion, keyof OagChangelogVersionAttributes> & { [K in keyof OagChangelogVersion & keyof OagChangelogVersionAttributes]?: OagChangelogVersion[K] } & { [K in keyof OagChangelogVersion & keyof OagChangelogVersionAttributes as `attr:${K}`]?: OagChangelogVersionAttributes[K] } & { [K in keyof OagChangelogVersion & keyof OagChangelogVersionAttributes as `prop:${K}`]?: OagChangelogVersion[K] };
+        "oag-cockpit": Omit<OagCockpit, keyof OagCockpitAttributes> & { [K in keyof OagCockpit & keyof OagCockpitAttributes]?: OagCockpit[K] } & { [K in keyof OagCockpit & keyof OagCockpitAttributes as `attr:${K}`]?: OagCockpitAttributes[K] } & { [K in keyof OagCockpit & keyof OagCockpitAttributes as `prop:${K}`]?: OagCockpit[K] };
+        "oag-cockpit-navigation-item": Omit<OagCockpitNavigationItem, keyof OagCockpitNavigationItemAttributes> & { [K in keyof OagCockpitNavigationItem & keyof OagCockpitNavigationItemAttributes]?: OagCockpitNavigationItem[K] } & { [K in keyof OagCockpitNavigationItem & keyof OagCockpitNavigationItemAttributes as `attr:${K}`]?: OagCockpitNavigationItemAttributes[K] } & { [K in keyof OagCockpitNavigationItem & keyof OagCockpitNavigationItemAttributes as `prop:${K}`]?: OagCockpitNavigationItem[K] };
         "oag-content": OagContent;
-        "oag-figure": OagFigure;
-        "oag-font-size": OagFontSize;
-        "oag-gallery": OagGallery;
-        "oag-hero": OagHero;
-        "oag-horizontal-gallery": OagHorizontalGallery;
-        "oag-image-comparison": OagImageComparison;
+        "oag-figure": Omit<OagFigure, keyof OagFigureAttributes> & { [K in keyof OagFigure & keyof OagFigureAttributes]?: OagFigure[K] } & { [K in keyof OagFigure & keyof OagFigureAttributes as `attr:${K}`]?: OagFigureAttributes[K] } & { [K in keyof OagFigure & keyof OagFigureAttributes as `prop:${K}`]?: OagFigure[K] };
+        "oag-font-size": Omit<OagFontSize, keyof OagFontSizeAttributes> & { [K in keyof OagFontSize & keyof OagFontSizeAttributes]?: OagFontSize[K] } & { [K in keyof OagFontSize & keyof OagFontSizeAttributes as `attr:${K}`]?: OagFontSizeAttributes[K] } & { [K in keyof OagFontSize & keyof OagFontSizeAttributes as `prop:${K}`]?: OagFontSize[K] };
+        "oag-gallery": Omit<OagGallery, keyof OagGalleryAttributes> & { [K in keyof OagGallery & keyof OagGalleryAttributes]?: OagGallery[K] } & { [K in keyof OagGallery & keyof OagGalleryAttributes as `attr:${K}`]?: OagGalleryAttributes[K] } & { [K in keyof OagGallery & keyof OagGalleryAttributes as `prop:${K}`]?: OagGallery[K] };
+        "oag-hero": Omit<OagHero, keyof OagHeroAttributes> & { [K in keyof OagHero & keyof OagHeroAttributes]?: OagHero[K] } & { [K in keyof OagHero & keyof OagHeroAttributes as `attr:${K}`]?: OagHeroAttributes[K] } & { [K in keyof OagHero & keyof OagHeroAttributes as `prop:${K}`]?: OagHero[K] };
+        "oag-horizontal-gallery": Omit<OagHorizontalGallery, keyof OagHorizontalGalleryAttributes> & { [K in keyof OagHorizontalGallery & keyof OagHorizontalGalleryAttributes]?: OagHorizontalGallery[K] } & { [K in keyof OagHorizontalGallery & keyof OagHorizontalGalleryAttributes as `attr:${K}`]?: OagHorizontalGalleryAttributes[K] } & { [K in keyof OagHorizontalGallery & keyof OagHorizontalGalleryAttributes as `prop:${K}`]?: OagHorizontalGallery[K] };
+        "oag-image-comparison": Omit<OagImageComparison, keyof OagImageComparisonAttributes> & { [K in keyof OagImageComparison & keyof OagImageComparisonAttributes]?: OagImageComparison[K] } & { [K in keyof OagImageComparison & keyof OagImageComparisonAttributes as `attr:${K}`]?: OagImageComparisonAttributes[K] } & { [K in keyof OagImageComparison & keyof OagImageComparisonAttributes as `prop:${K}`]?: OagImageComparison[K] };
         "oag-imprint": OagImprint;
         "oag-information": OagInformation;
-        "oag-lightbox": OagLightbox;
-        "oag-loading": OagLoading;
-        "oag-map": OagMap;
-        "oag-menu": OagMenu;
+        "oag-lightbox": Omit<OagLightbox, keyof OagLightboxAttributes> & { [K in keyof OagLightbox & keyof OagLightboxAttributes]?: OagLightbox[K] } & { [K in keyof OagLightbox & keyof OagLightboxAttributes as `attr:${K}`]?: OagLightboxAttributes[K] } & { [K in keyof OagLightbox & keyof OagLightboxAttributes as `prop:${K}`]?: OagLightbox[K] };
+        "oag-loading": Omit<OagLoading, keyof OagLoadingAttributes> & { [K in keyof OagLoading & keyof OagLoadingAttributes]?: OagLoading[K] } & { [K in keyof OagLoading & keyof OagLoadingAttributes as `attr:${K}`]?: OagLoadingAttributes[K] } & { [K in keyof OagLoading & keyof OagLoadingAttributes as `prop:${K}`]?: OagLoading[K] };
+        "oag-map": Omit<OagMap, keyof OagMapAttributes> & { [K in keyof OagMap & keyof OagMapAttributes]?: OagMap[K] } & { [K in keyof OagMap & keyof OagMapAttributes as `attr:${K}`]?: OagMapAttributes[K] } & { [K in keyof OagMap & keyof OagMapAttributes as `prop:${K}`]?: OagMap[K] };
+        "oag-menu": Omit<OagMenu, keyof OagMenuAttributes> & { [K in keyof OagMenu & keyof OagMenuAttributes]?: OagMenu[K] } & { [K in keyof OagMenu & keyof OagMenuAttributes as `attr:${K}`]?: OagMenuAttributes[K] } & { [K in keyof OagMenu & keyof OagMenuAttributes as `prop:${K}`]?: OagMenu[K] };
         "oag-menu-item": OagMenuItem;
-        "oag-misc": OagMisc;
-        "oag-project": OagProject;
-        "oag-reference": OagReference;
-        "oag-screen-background-layer-item": OagScreenBackgroundLayerItem;
-        "oag-screen-content-layer-item": OagScreenContentLayerItem;
-        "oag-screen-map": OagScreenMap;
-        "oag-tooltip": OagTooltip;
+        "oag-misc": Omit<OagMisc, keyof OagMiscAttributes> & { [K in keyof OagMisc & keyof OagMiscAttributes]?: OagMisc[K] } & { [K in keyof OagMisc & keyof OagMiscAttributes as `attr:${K}`]?: OagMiscAttributes[K] } & { [K in keyof OagMisc & keyof OagMiscAttributes as `prop:${K}`]?: OagMisc[K] };
+        "oag-project": Omit<OagProject, keyof OagProjectAttributes> & { [K in keyof OagProject & keyof OagProjectAttributes]?: OagProject[K] } & { [K in keyof OagProject & keyof OagProjectAttributes as `attr:${K}`]?: OagProjectAttributes[K] } & { [K in keyof OagProject & keyof OagProjectAttributes as `prop:${K}`]?: OagProject[K] };
+        "oag-reference": Omit<OagReference, keyof OagReferenceAttributes> & { [K in keyof OagReference & keyof OagReferenceAttributes]?: OagReference[K] } & { [K in keyof OagReference & keyof OagReferenceAttributes as `attr:${K}`]?: OagReferenceAttributes[K] } & { [K in keyof OagReference & keyof OagReferenceAttributes as `prop:${K}`]?: OagReference[K] };
+        "oag-screen-background-layer-item": Omit<OagScreenBackgroundLayerItem, keyof OagScreenBackgroundLayerItemAttributes> & { [K in keyof OagScreenBackgroundLayerItem & keyof OagScreenBackgroundLayerItemAttributes]?: OagScreenBackgroundLayerItem[K] } & { [K in keyof OagScreenBackgroundLayerItem & keyof OagScreenBackgroundLayerItemAttributes as `attr:${K}`]?: OagScreenBackgroundLayerItemAttributes[K] } & { [K in keyof OagScreenBackgroundLayerItem & keyof OagScreenBackgroundLayerItemAttributes as `prop:${K}`]?: OagScreenBackgroundLayerItem[K] };
+        "oag-screen-content-layer-item": Omit<OagScreenContentLayerItem, keyof OagScreenContentLayerItemAttributes> & { [K in keyof OagScreenContentLayerItem & keyof OagScreenContentLayerItemAttributes]?: OagScreenContentLayerItem[K] } & { [K in keyof OagScreenContentLayerItem & keyof OagScreenContentLayerItemAttributes as `attr:${K}`]?: OagScreenContentLayerItemAttributes[K] } & { [K in keyof OagScreenContentLayerItem & keyof OagScreenContentLayerItemAttributes as `prop:${K}`]?: OagScreenContentLayerItem[K] };
+        "oag-screen-map": Omit<OagScreenMap, keyof OagScreenMapAttributes> & { [K in keyof OagScreenMap & keyof OagScreenMapAttributes]?: OagScreenMap[K] } & { [K in keyof OagScreenMap & keyof OagScreenMapAttributes as `attr:${K}`]?: OagScreenMapAttributes[K] } & { [K in keyof OagScreenMap & keyof OagScreenMapAttributes as `prop:${K}`]?: OagScreenMap[K] };
+        "oag-tooltip": Omit<OagTooltip, keyof OagTooltipAttributes> & { [K in keyof OagTooltip & keyof OagTooltipAttributes]?: OagTooltip[K] } & { [K in keyof OagTooltip & keyof OagTooltipAttributes as `attr:${K}`]?: OagTooltipAttributes[K] } & { [K in keyof OagTooltip & keyof OagTooltipAttributes as `prop:${K}`]?: OagTooltip[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "oag-application": LocalJSX.OagApplication & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
-            "oag-audio": LocalJSX.OagAudio & JSXBase.HTMLAttributes<HTMLOagAudioElement>;
-            "oag-changelog-entry": LocalJSX.OagChangelogEntry & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
-            "oag-changelog-version": LocalJSX.OagChangelogVersion & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
-            "oag-cockpit": LocalJSX.OagCockpit & JSXBase.HTMLAttributes<HTMLOagCockpitElement>;
-            "oag-cockpit-navigation-item": LocalJSX.OagCockpitNavigationItem & JSXBase.HTMLAttributes<HTMLOagCockpitNavigationItemElement>;
-            "oag-content": LocalJSX.OagContent & JSXBase.HTMLAttributes<HTMLOagContentElement>;
-            "oag-figure": LocalJSX.OagFigure & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
-            "oag-font-size": LocalJSX.OagFontSize & JSXBase.HTMLAttributes<HTMLOagFontSizeElement>;
-            "oag-gallery": LocalJSX.OagGallery & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
-            "oag-hero": LocalJSX.OagHero & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
-            "oag-horizontal-gallery": LocalJSX.OagHorizontalGallery & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
-            "oag-image-comparison": LocalJSX.OagImageComparison & JSXBase.HTMLAttributes<HTMLOagImageComparisonElement>;
-            "oag-imprint": LocalJSX.OagImprint & JSXBase.HTMLAttributes<HTMLOagImprintElement>;
-            "oag-information": LocalJSX.OagInformation & JSXBase.HTMLAttributes<HTMLOagInformationElement>;
-            "oag-lightbox": LocalJSX.OagLightbox & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
-            "oag-loading": LocalJSX.OagLoading & JSXBase.HTMLAttributes<HTMLOagLoadingElement>;
-            "oag-map": LocalJSX.OagMap & JSXBase.HTMLAttributes<HTMLOagMapElement>;
-            "oag-menu": LocalJSX.OagMenu & JSXBase.HTMLAttributes<HTMLOagMenuElement>;
-            "oag-menu-item": LocalJSX.OagMenuItem & JSXBase.HTMLAttributes<HTMLOagMenuItemElement>;
-            "oag-misc": LocalJSX.OagMisc & JSXBase.HTMLAttributes<HTMLOagMiscElement>;
-            "oag-project": LocalJSX.OagProject & JSXBase.HTMLAttributes<HTMLOagProjectElement>;
-            "oag-reference": LocalJSX.OagReference & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
-            "oag-screen-background-layer-item": LocalJSX.OagScreenBackgroundLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;
-            "oag-screen-content-layer-item": LocalJSX.OagScreenContentLayerItem & JSXBase.HTMLAttributes<HTMLOagScreenContentLayerItemElement>;
-            "oag-screen-map": LocalJSX.OagScreenMap & JSXBase.HTMLAttributes<HTMLOagScreenMapElement>;
-            "oag-tooltip": LocalJSX.OagTooltip & JSXBase.HTMLAttributes<HTMLOagTooltipElement>;
+            "oag-application": LocalJSX.IntrinsicElements["oag-application"] & JSXBase.HTMLAttributes<HTMLOagApplicationElement>;
+            "oag-audio": LocalJSX.IntrinsicElements["oag-audio"] & JSXBase.HTMLAttributes<HTMLOagAudioElement>;
+            "oag-changelog-entry": LocalJSX.IntrinsicElements["oag-changelog-entry"] & JSXBase.HTMLAttributes<HTMLOagChangelogEntryElement>;
+            "oag-changelog-version": LocalJSX.IntrinsicElements["oag-changelog-version"] & JSXBase.HTMLAttributes<HTMLOagChangelogVersionElement>;
+            "oag-cockpit": LocalJSX.IntrinsicElements["oag-cockpit"] & JSXBase.HTMLAttributes<HTMLOagCockpitElement>;
+            "oag-cockpit-navigation-item": LocalJSX.IntrinsicElements["oag-cockpit-navigation-item"] & JSXBase.HTMLAttributes<HTMLOagCockpitNavigationItemElement>;
+            "oag-content": LocalJSX.IntrinsicElements["oag-content"] & JSXBase.HTMLAttributes<HTMLOagContentElement>;
+            "oag-figure": LocalJSX.IntrinsicElements["oag-figure"] & JSXBase.HTMLAttributes<HTMLOagFigureElement>;
+            "oag-font-size": LocalJSX.IntrinsicElements["oag-font-size"] & JSXBase.HTMLAttributes<HTMLOagFontSizeElement>;
+            "oag-gallery": LocalJSX.IntrinsicElements["oag-gallery"] & JSXBase.HTMLAttributes<HTMLOagGalleryElement>;
+            "oag-hero": LocalJSX.IntrinsicElements["oag-hero"] & JSXBase.HTMLAttributes<HTMLOagHeroElement>;
+            "oag-horizontal-gallery": LocalJSX.IntrinsicElements["oag-horizontal-gallery"] & JSXBase.HTMLAttributes<HTMLOagHorizontalGalleryElement>;
+            "oag-image-comparison": LocalJSX.IntrinsicElements["oag-image-comparison"] & JSXBase.HTMLAttributes<HTMLOagImageComparisonElement>;
+            "oag-imprint": LocalJSX.IntrinsicElements["oag-imprint"] & JSXBase.HTMLAttributes<HTMLOagImprintElement>;
+            "oag-information": LocalJSX.IntrinsicElements["oag-information"] & JSXBase.HTMLAttributes<HTMLOagInformationElement>;
+            "oag-lightbox": LocalJSX.IntrinsicElements["oag-lightbox"] & JSXBase.HTMLAttributes<HTMLOagLightboxElement>;
+            "oag-loading": LocalJSX.IntrinsicElements["oag-loading"] & JSXBase.HTMLAttributes<HTMLOagLoadingElement>;
+            "oag-map": LocalJSX.IntrinsicElements["oag-map"] & JSXBase.HTMLAttributes<HTMLOagMapElement>;
+            "oag-menu": LocalJSX.IntrinsicElements["oag-menu"] & JSXBase.HTMLAttributes<HTMLOagMenuElement>;
+            "oag-menu-item": LocalJSX.IntrinsicElements["oag-menu-item"] & JSXBase.HTMLAttributes<HTMLOagMenuItemElement>;
+            "oag-misc": LocalJSX.IntrinsicElements["oag-misc"] & JSXBase.HTMLAttributes<HTMLOagMiscElement>;
+            "oag-project": LocalJSX.IntrinsicElements["oag-project"] & JSXBase.HTMLAttributes<HTMLOagProjectElement>;
+            "oag-reference": LocalJSX.IntrinsicElements["oag-reference"] & JSXBase.HTMLAttributes<HTMLOagReferenceElement>;
+            "oag-screen-background-layer-item": LocalJSX.IntrinsicElements["oag-screen-background-layer-item"] & JSXBase.HTMLAttributes<HTMLOagScreenBackgroundLayerItemElement>;
+            "oag-screen-content-layer-item": LocalJSX.IntrinsicElements["oag-screen-content-layer-item"] & JSXBase.HTMLAttributes<HTMLOagScreenContentLayerItemElement>;
+            "oag-screen-map": LocalJSX.IntrinsicElements["oag-screen-map"] & JSXBase.HTMLAttributes<HTMLOagScreenMapElement>;
+            "oag-tooltip": LocalJSX.IntrinsicElements["oag-tooltip"] & JSXBase.HTMLAttributes<HTMLOagTooltipElement>;
         }
     }
 }

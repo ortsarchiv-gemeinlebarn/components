@@ -1,6 +1,6 @@
 {
     "name": "@ortsarchiv-gemeinlebarn/components",
-    "version": "2.21.0",
+    "version": "2.22.0",
     "description": "Ortsarchiv Gemeinelbarn Web Components",
     "author": {
         "name": "Jakob Vesely",
@@ -31,12 +31,12 @@
         "generate": "stencil generate"
     },
     "dependencies": {
-        "@stencil/core": "^4.36.3",
-        "ol": "^10.6.1",
+        "@stencil/core": "^4.43.4",
+        "ol": "^10.9.0",
         "simplelightbox": "^2.14.3"
     },
     "devDependencies": {
-        "@stencil/sass": "^3.2.2"
+        "@stencil/sass": "^3.2.3"
     },
     "license": "MIT"
 }
