@@ -220,6 +220,10 @@ export namespace Components {
           * @default ''
          */
         "subtitle": string;
+        /**
+          * @default ''
+         */
+        "tag": string;
     }
     interface OagReference {
         /**
@@ -747,6 +751,10 @@ declare namespace LocalJSX {
           * @default ''
          */
         "subtitle"?: string;
+        /**
+          * @default ''
+         */
+        "tag"?: string;
     }
     interface OagReference {
         /**
@@ -895,6 +903,7 @@ declare namespace LocalJSX {
         "backgroundImage": string;
         "backgroundOverlay": string;
         "backgroundPosition": string;
+        "tag": string;
     }
     interface OagReferenceAttributes {
         "label": string;

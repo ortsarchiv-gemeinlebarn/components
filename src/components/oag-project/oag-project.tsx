@@ -13,6 +13,7 @@ export class OagProject {
     @Prop() public backgroundImage: string = '';
     @Prop() public backgroundOverlay: string = '';
     @Prop() public backgroundPosition: string = 'center center';
+    @Prop() public tag: string = '';
 
     render() {
         return (
@@ -35,8 +36,11 @@ export class OagProject {
                         <h3>{this.hrefLabel}</h3>
                     </div>
                     <div class="overlay" style={{ background: this.backgroundOverlay }}>
-                        <div class="icon">
-                            <slot name="icon"></slot>
+                        <div class="icon-and-tag">
+                            {this.tag && <p class="tag">{this.tag}</p>}
+                            <div class="icon">
+                                <slot name="icon"></slot>
+                            </div>
                         </div>
                         <div class="content">
                             <h3 class="title">{this.maintitle}</h3>
